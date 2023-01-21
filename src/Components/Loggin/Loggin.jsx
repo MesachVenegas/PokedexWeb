@@ -18,7 +18,12 @@ const Loggin = () => {
             <form className="user_form">
                 <label htmlFor="user">Give me your name to star</label>
                 <div className="input_box">
-                    <input type="text"  id='user' value={ userName }/>
+                    <input
+                        type="text"
+                        id='user'
+                        value={ userName }
+                        placeholder= { userName }
+                    />
                     <button className='loggin_submit'>
                         <i className="fa-solid fa-paper-plane"></i>
                     </button>
