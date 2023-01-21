@@ -7,6 +7,7 @@ function App() {
     return (
         <HashRouter>
             <Routes>
+                <Route path='/' element={ <Loggin /> }/>
             </Routes>
         </HashRouter>
     )
