@@ -1,10 +1,29 @@
+import axios from 'axios';
 import React from 'react';
+import { useEffect, useState } from 'react';
 import './pokemoncard.css'
 
-const PokemonCard = () => {
+const PokemonCard = ({ pokemon }) => {
+    const [data, setData] = useState({})
+    const [types, setTypes] = useState('')
+
+    useEffect( () =>{
+        if(pokemon){
+            axios.get(pokemon.url)
+                .then( res => setData(res.data))
+                .catch( res => console.log(res))
+
+        }
+    },[pokemon])
+
+    const loadTypes = () =>{
+        const long = data.types?.length;
+    }
+
+    loadTypes()
     return (
         <div className='pokemon_card'>
-            <h3>Pokemon Name</h3>
+            <h3>{data.name}</h3>
             <div className="data_container">
                 <ul className='pokemon_data'>
                     <li>Types: </li>
@@ -14,7 +33,7 @@ const PokemonCard = () => {
                     <li>Speed: </li>
                 </ul>
                 <figure className='pokemon_sprite'>
-                    <img src="" alt="sprite-pokemon" />
+                    <img src={data.sprites?.front_default} alt="sprite-pokemon" />
                 </figure>
             </div>
         </div>
