@@ -62,7 +62,8 @@
 
 .input_box > input[id='user']{
     width: 75%;
-    height: 25px;
+    height: 29px;
+    font-weight: bold;
     border-radius: 1em;
     border: 1px solid rgba(0, 0, 0, .2);
     box-shadow: 0 8px 16px rgba(0, 0, 0, .6), 0px 12px 20px rgba(0, 0, 0, .9);
@@ -94,7 +95,7 @@
     }
     .background_pokeball {
         width: 45%;
-        top: 20%;
+        top: 6%;
         right: -19%;
     }
 }
@@ -104,14 +105,19 @@
         width: 50%;
     }
     .background_pokeball {
-        width: 45%;
-        top: 17%;
-        right: -19%;
+        width: 35%;
+        top: 9%;
+        right: -12%;
     }
 }
 
 @media screen and (min-width: 992px) {
     .user_form{
         width: 40%;
+    }
+    .background_pokeball {
+        width: 28%;
+        top: 5%;
+        right: -12%;
     }
 }
