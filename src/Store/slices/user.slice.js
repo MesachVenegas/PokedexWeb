@@ -5,7 +5,8 @@ export const userNameSlice = createSlice({
     initialState: 'example',
     reducers: {
         setUserName: (state, action) =>{
-            return 'clickeado'
+            const inputValue = action.payload
+            return inputValue;
         }
     }
 })

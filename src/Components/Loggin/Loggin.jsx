@@ -13,10 +13,11 @@ const Loggin = () => {
 
     const submit = e =>{
         e.preventDefault();
-        dispatch( setUserName())
+        if(inputValue){
+            dispatch(setUserName(inputValue))
+        }
     }
-
-    console.log (userName );
+    console.log(userName);
     return (
         <div className='loggin_container'>
             <img src={ vector } alt="pokeball" className='background_pokeball'/>
@@ -33,8 +34,8 @@ const Loggin = () => {
                         type="text"
                         id='user'
                         value={ inputValue }
-                        placeholder={ userName }
                         onChange={ e => setInputValue(e.target.value) }
+                        required
                     />
                     <button className='loggin_submit'>
                         <i className="fa-solid fa-paper-plane"></i>
