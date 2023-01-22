@@ -7,17 +7,23 @@ import './pokemons.css'
 
 const Pokemons = () => {
     const [pokemons, setPokemons] = useState([])
+    const [pagination, setPagination] = useState(null)
+    const [next, setNext] = useState("")
 
     const getPokemons = () =>{
         // https://pokeapi.co/api/v2/pokemon/{id or name}/
-        axios.get('https://pokeapi.co/api/v2/pokemon/')
-            .then(res => setPokemons(res.data))
+        axios.get('https://pokeapi.co/api/v2/pokemon/?limit=18')
+            .then(res =>{
+                setPokemons(res.data)
+                console.log(res.data);
+            })
             .catch(res => console.log(res))
     }
 
     useEffect( () =>{
         getPokemons()
     },[])
+    console.log(pagination);
 
     return (
         <div className='pokemons_container'>
