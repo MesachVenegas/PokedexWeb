@@ -3,24 +3,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
+    width: 270px;
     border-radius: 1em;
     border: 1px solid;
 }
 
 .data_container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-end;
-    border: 1px solid;
 }
 
 .pokemon_data{
     padding: 0;
     list-style: none;
-    border: 1px solid;
 }
 
 .pokemon_sprite{
-    border: 1px solid;
+    display: grid;
+    place-items: center;
+    width: 110px;
+}
+
+.pokemon_sprite > img{
+    width: 100%;
+    object-fit: contain;
 }
