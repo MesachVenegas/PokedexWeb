@@ -3,22 +3,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
     gap: 1em;
     width: 100%;
     height: 100%;
 }
 
-
 .welcome{
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content:center;
     height: 250px;
     padding: 1em;
 }
 
+.background_pokeball{
+    position: absolute;
+    width: 60%;
+    top: 25%;
+    right: -21%;
+    transform: rotate(65deg);
+}
+
 .ash_container{
-    height: 100%;
+    height: 85%;
 }
 
 .ash_container > img{
@@ -29,15 +38,17 @@
 
 .user_form{
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 90%;
     gap: .5em;
     padding: 1em;
 }
 
 .user_form>label {
+    text-align: center;
     font-size: 1.3em;
     font-weight: bold;
 }
@@ -74,4 +85,33 @@
 
 .loggin_submit:hover{
     transform: scale(1.1);
+}
+
+
+@media screen and (min-width: 498px) {
+    .user_form{
+        width: 70%;
+    }
+    .background_pokeball {
+        width: 45%;
+        top: 20%;
+        right: -19%;
+    }
+}
+
+@media screen and (min-width: 578px) {
+    .user_form{
+        width: 50%;
+    }
+    .background_pokeball {
+        width: 45%;
+        top: 17%;
+        right: -19%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .user_form{
+        width: 40%;
+    }
 }
