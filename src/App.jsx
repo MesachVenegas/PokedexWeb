@@ -10,7 +10,7 @@ function App() {
         <HashRouter>
             <Routes>
                 <Route path='/' element={ <Loggin /> }/>
-                <Route path='/pokedex' element={ <Pokemons />} />
+                <Route path='/pokemons' element={ <Pokemons />} />
                 <Route path='/detail:name' element={ <PokemonDetail/> } />
             </Routes>
         </HashRouter>
