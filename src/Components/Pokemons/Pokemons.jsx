@@ -11,7 +11,6 @@ const Pokemons = () => {
     const [next, setNext] = useState("")
 
     const getPokemons = () =>{
-        // https://pokeapi.co/api/v2/pokemon/{id or name}/
         axios.get('https://pokeapi.co/api/v2/pokemon/?limit=18')
             .then(res =>{
                 setPokemons(res.data)
