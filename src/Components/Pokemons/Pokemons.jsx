@@ -9,20 +9,44 @@ const Pokemons = () => {
     const [pokemons, setPokemons] = useState([])
     const [pagination, setPagination] = useState(null)
     const [next, setNext] = useState("")
+    const [change, setChange] = useState(false)
+    const [title, setTitile] = useState("")
 
-    const getPokemons = () =>{
-        axios.get('https://pokeapi.co/api/v2/pokemon/?limit=18')
+    const getPokemons = async () =>{
+        await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=18')
             .then(res =>{
                 setPokemons(res.data)
-                console.log(res.data);
             })
-            .catch(res => console.log(res))
+            .catch(error => console.log(error))
+    }
+
+    const getPokemonsByType = async () =>{
+        await axios.get('https://pokeapi.co/api/v2/type/1/')
+            .then(res =>{
+                setPokemons(res.data.pokemon)
+                setChange(true)
+            })
+            .catch( error => console.log( error))
+    }
+
+    const loadPokemons = () =>{
+        if (!change) {
+            return pokemons.results?.map(pokemon => {
+                return(<PokemonCard key={pokemon.name} pokemon={pokemon} />)
+            })
+        } else {
+            return pokemons?.map(data => {
+                const info = data?.pokemon
+                return(<PokemonCard key={info?.name} pokemon={info} />)
+            })
+        }
     }
 
     useEffect( () =>{
-        getPokemons()
+        // getPokemons()
+        getPokemonsByType()
     },[])
-    console.log(pagination);
+
 
     return (
         <div className='pokemons_container'>
@@ -33,11 +57,7 @@ const Pokemons = () => {
             </div>
 
             <div className="cards_container">
-                {
-                    pokemons.results?.map(pokemon =>(
-                        <PokemonCard key={pokemon.name} pokemon={pokemon} />
-                    ))
-                }
+                { loadPokemons() }
             </div>
         </div>
     );
