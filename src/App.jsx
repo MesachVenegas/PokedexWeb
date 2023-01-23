@@ -11,7 +11,7 @@ function App() {
             <Routes>
                 <Route path='/' element={ <Loggin /> }/>
                 <Route path='/pokemons' element={ <Pokemons />} />
-                <Route path='/detail:name' element={ <PokemonDetail/> } />
+                <Route path='/detail/:name' element={ <PokemonDetail/> } />
             </Routes>
         </HashRouter>
     )
