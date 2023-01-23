@@ -57,11 +57,38 @@ const PokemonCard = ({ pokemon }) => {
             <h3>{name}</h3>
             <div className="data_container">
                 <ul className='pokemon_data'>
-                    <li>Types: {types}</li>
-                    <li>Hp:<span className='bar'></span>{hp}</li>
-                    <li>Attack: {attack}</li>
+                    <li className='type'>Types: {types}</li>
+                    <li className='bar_box'>
+                        Hp:
+                        <div className='bar_container'>
+                            <span className='bar_fill' style={{minWidth: hp + 'px'}}></span>
+                        </div>
+                        {hp}
+                    </li>
+                    <li className='bar_box'>
+                        Attack:
+                        <div className='bar_container'>
+                            <span className='bar_fill' style={{minWidth: attack + 'px'}}></span>
+                        </div>
+                        {attack}
+                    </li>
+                    <li className='bar_box'>
+                        Defense:
+                        <div className='bar_container'>
+                            <span className='bar_fill' style={{minWidth: defense + 'px'}}></span>
+                        </div>
+                        {defense}
+                    </li>
+                    <li className='bar_box'>
+                        Speed:
+                        <div className='bar_container'>
+                            <span className='bar_fill' style={{minWidth: speed + 'px'}}></span>
+                        </div>
+                        {speed}
+                    </li>
+                    {/* <li>Attack: {attack}</li>
                     <li>Defense: {defense}</li>
-                    <li>Speed: {speed}</li>
+                    <li>Speed: {speed}</li> */}
                 </ul>
                 <figure className='pokemon_sprite'>
                     <img src={data.sprites?.front_default} alt="sprite-pokemon" />
