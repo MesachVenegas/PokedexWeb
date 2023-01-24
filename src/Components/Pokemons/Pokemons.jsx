@@ -29,6 +29,7 @@ const Pokemons = () => {
     // Trae el total de pokemons disponibles.
     const getPokemons = async () =>{
         // ?offset=0&limit=1279
+        // ?limit=21
         await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=21')
             .then(res =>{
                 setPokemons(res.data)
@@ -56,13 +57,9 @@ const Pokemons = () => {
         if (toShow) {
             return ( <PokemonCard key={toSearch} pokemon={null} searchResult={toShow} /> )
         }else if(!change) {
-            if(!pokemons){
-                return pokemons.results?.map(pokemon => {
-                    return(<PokemonCard key={pokemon.name} pokemon={pokemon} searchByName={null} />)
-                })
-            }else{
-                return( <Loading />)
-            }
+            return pokemons.results?.map(pokemon => {
+                return(<PokemonCard key={pokemon.name} pokemon={pokemon} searchByName={null} />)
+            })
         } else {
             return pokemons?.map(data => {
                 const info = data?.pokemon
@@ -121,7 +118,7 @@ const Pokemons = () => {
             </div>
 
             <div className="cards_container">
-                { loadPokemons() }
+                { pokemons ? loadPokemons() : <Loading /> }
             </div>
         </div>
     );
