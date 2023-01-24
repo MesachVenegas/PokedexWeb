@@ -1,6 +1,8 @@
 import PokemonCard from '../PokemonCard/PokemonCard';
+import Loading from '../Loading/Loading';
 import logo from '../../assets/imgs/pokemon-logo.png'
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios'
 import './pokemons.css'
 
@@ -12,19 +14,22 @@ const Pokemons = () => {
     const [toSearch, setToSearch] = useState('')
     const [toShow, setToShow] = useState(null)
 
+    const userName = useSelector(state => state.userName);
+
     // Search pokemon by name or id.
-    const searchPokemon= async () =>{
-        await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300')
-            .then(res => {
-                res.data.results?.forEach(pokemon => {
-                    console.log(pokemon);
-                })
-            })
-            .catch(error => console.log(error))
-    }
+    // const searchPokemon= async () =>{
+    //     await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300')
+    //         .then(res => {
+    //             res.data.results?.forEach(pokemon => {
+    //                 console.log(pokemon);
+    //             })
+    //         })
+    //         .catch(error => console.log(error))
+    // }
     // Trae el total de pokemons disponibles.
     const getPokemons = async () =>{
-        await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=18')
+        // ?offset=0&limit=1279
+        await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=21')
             .then(res =>{
                 setPokemons(res.data)
             })
@@ -51,9 +56,13 @@ const Pokemons = () => {
         if (toShow) {
             return ( <PokemonCard key={toSearch} pokemon={null} searchResult={toShow} /> )
         }else if(!change) {
-            return pokemons.results?.map(pokemon => {
-                return(<PokemonCard key={pokemon.name} pokemon={pokemon} searchByName={null} />)
-            })
+            if(!pokemons){
+                return pokemons.results?.map(pokemon => {
+                    return(<PokemonCard key={pokemon.name} pokemon={pokemon} searchByName={null} />)
+                })
+            }else{
+                return( <Loading />)
+            }
         } else {
             return pokemons?.map(data => {
                 const info = data?.pokemon
@@ -83,7 +92,7 @@ const Pokemons = () => {
             <div className="header">
                 <div className="header">
                     <img src={logo} alt="pokemon_logo" className='logo'/>
-                    <h2>Welcome! Trainer name</h2>
+                    <h2>Welcome! { userName } here you can find your favorite pokemon</h2>
                 </div>
                 {/* Search bar by pokemon name or id */}
                 <div className="search">
