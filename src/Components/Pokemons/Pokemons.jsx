@@ -12,7 +12,7 @@ const Pokemons = () => {
     const [type, setType] = useState("")
     const [toSearch, setToSearch] = useState('')
 
-
+    // Trae el total de pokemons disponibles.
     const getPokemons = async () =>{
         await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=18')
             .then(res =>{
@@ -20,7 +20,7 @@ const Pokemons = () => {
             })
             .catch(error => console.log(error))
     }
-
+    // Se encarga de traer el listado de tipos de pokemon disponibles.
     const getPokemonTypes = async () =>{
         await axios.get(`https://pokeapi.co/api/v2/type/`)
         .then( res => setPokemonTypes(res.data.results))
@@ -36,14 +36,13 @@ const Pokemons = () => {
             })
             .catch( error => console.log( error))
     }
-
+    // Encargada de traer al pokemon que se busca según el id o nombre proporcionado.
     const searchPokemon = async (name) =>{
         console.log(name)
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
             .then( res => console.log(res.data))
             .catch(error => console.log(error))
     }
-
     // se encarga del renderizado de la lista de pokemon según el termino de busqueda.
     const loadPokemons = () =>{
         if (!change) {
