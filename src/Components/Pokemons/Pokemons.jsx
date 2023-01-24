@@ -8,7 +8,7 @@ import './pokemons.css'
 const Pokemons = () => {
     const [pokemonTypes, setPokemonTypes] = useState([])
     const [pokemons, setPokemons] = useState([])
-    const [t, setChange] = useState(false)
+    const [change, setChange] = useState(false)
     const [type, setType] = useState("")
     const [toSearch, setToSearch] = useState('')
 
@@ -46,7 +46,7 @@ const Pokemons = () => {
 
     // se encarga del renderizado de la lista de pokemon según el termino de busqueda.
     const loadPokemons = () =>{
-        if (!t) {
+        if (!change) {
             return pokemons.results?.map(pokemon => {
                 return(<PokemonCard key={pokemon.name} pokemon={pokemon} />)
             })
