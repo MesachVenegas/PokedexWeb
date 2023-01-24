@@ -1,9 +1,9 @@
-import axios from 'axios';
-import React from 'react';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import altImg from  '../../assets/imgs/whoIs.png'
 import './pokemoncard.css'
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({ pokemon, searchResult }) => {
     const [data, setData] = useState({});
     const [name, setName] =  useState('')
     const [types, setTypes] = useState('');
@@ -12,29 +12,34 @@ const PokemonCard = ({ pokemon }) => {
     const [defense, setDefense] = useState('');
     const [speed, setSpeed] = useState('')
 
-    useEffect( () =>{
-        if(pokemon){
-            axios.get(pokemon.url)
-                .then( res =>{
-                    setData(res.data)
-                    capitalizeName(res.data.name)
-                    loadTypes(res.data.types)
-                    loadStats(res.data.stats)
-                })
-                .catch( res => console.log(res))
+    const getData = async () => {
+        axios.get(pokemon.url)
+            .then(res => {
+                setData(res.data)
+                capitalizeName(res.data.name)
+                loadTypes(res.data.types)
+                loadStats(res.data.stats)
+            })
+            .catch(res => console.log(res))
+    }
 
+    useEffect( () => {
+        if( searchResult) {
+            console.log(searchResult);
+        }else{
+            getData()
         }
-    },[pokemon])
+    },[pokemon, searchResult])
 
-    const loadTypes = (typeList) =>{
+    const loadTypes = (typeList) => {
         setTypes(typeList?.map(type => type.type.name).join(' - '))
     }
 
-    const capitalizeName = (name) =>{
+    const capitalizeName = (name) => {
             setName(name?.charAt(0)?.toUpperCase() + name?.slice(1));
     }
 
-    const loadStats = (stats) =>{
+    const loadStats = (stats) => {
         stats.forEach(stat => {
             let statName =  stat.stat?.name;
             switch(statName){
@@ -86,12 +91,11 @@ const PokemonCard = ({ pokemon }) => {
                         </div>
                         {speed}
                     </li>
-                    {/* <li>Attack: {attack}</li>
-                    <li>Defense: {defense}</li>
-                    <li>Speed: {speed}</li> */}
                 </ul>
                 <figure className='pokemon_sprite'>
-                    <img src={data.sprites?.front_default} alt="sprite-pokemon" />
+                    <img
+                        src={ data.sprites?.front_default ? data.sprites?.front_default : altImg } alt="sprite-pokemon"
+                    />
                 </figure>
             </div>
         </div>

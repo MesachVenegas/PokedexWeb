@@ -1,7 +1,6 @@
 import PokemonCard from '../PokemonCard/PokemonCard';
 import logo from '../../assets/imgs/pokemon-logo.png'
 import { useEffect, useState } from 'react';
-import React from 'react';
 import axios from 'axios'
 import './pokemons.css'
 
@@ -11,7 +10,18 @@ const Pokemons = () => {
     const [change, setChange] = useState(false)
     const [type, setType] = useState("")
     const [toSearch, setToSearch] = useState('')
+    const [toShow, setToShow] = useState(null)
 
+    // Search pokemon by name or id.
+    const searchPokemon= async () =>{
+        await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300')
+            .then(res => {
+                res.data.results?.forEach(pokemon => {
+                    console.log(pokemon);
+                })
+            })
+            .catch(error => console.log(error))
+    }
     // Trae el total de pokemons disponibles.
     const getPokemons = async () =>{
         await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=18')
@@ -23,10 +33,9 @@ const Pokemons = () => {
     // Se encarga de traer el listado de tipos de pokemon disponibles.
     const getPokemonTypes = async () =>{
         await axios.get(`https://pokeapi.co/api/v2/type/`)
-        .then( res => setPokemonTypes(res.data.results))
-        .catch( error => console.log(error))
+            .then( res => setPokemonTypes(res.data.results))
+            .catch( error => console.log(error))
     }
-
     // Obtengo el listado de pokemons por tipo
     const getPokemonsByType = async (type) =>{
         await axios.get(`https://pokeapi.co/api/v2/type/${type}/`)
@@ -36,37 +45,38 @@ const Pokemons = () => {
             })
             .catch( error => console.log( error))
     }
-    // Encargada de traer al pokemon que se busca según el id o nombre proporcionado.
-    const searchPokemon = async (name) =>{
-        console.log(name)
-        await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
-            .then( res => console.log(res.data))
-            .catch(error => console.log(error))
-    }
+
     // se encarga del renderizado de la lista de pokemon según el termino de busqueda.
     const loadPokemons = () =>{
-        if (!change) {
+        if (toShow) {
+            return ( <PokemonCard key={toSearch} pokemon={null} searchResult={toShow} /> )
+        }else if(!change) {
             return pokemons.results?.map(pokemon => {
-                return(<PokemonCard key={pokemon.name} pokemon={pokemon} />)
+                return(<PokemonCard key={pokemon.name} pokemon={pokemon} searchByName={null} />)
             })
         } else {
             return pokemons?.map(data => {
                 const info = data?.pokemon
-                return(<PokemonCard key={info?.name} pokemon={info} />)
+                return (<PokemonCard key={info?.name} pokemon={info} searchByName={null} />)
             })
         }
     }
 
-
     useEffect( () =>{
+        // Get a list of exist types.
         getPokemonTypes()
-        if(type){
+        // Verificar si se muestran todos los pokemons o solo se mostraran los filtrados por el tipo de pokemon.
+        if(type) {
             getPokemonsByType(type)
-        }else{
+        }else {
             getPokemons()
         }
-    },[type])
+    },[ type ])
 
+    /*
+    <label for="file">File progress:</label>
+    <progress id="file" max="100" value="70"> 70% </progress>
+    */
 
     return (
         <div className='pokemons_container'>
@@ -75,6 +85,7 @@ const Pokemons = () => {
                     <img src={logo} alt="pokemon_logo" className='logo'/>
                     <h2>Welcome! Trainer name</h2>
                 </div>
+                {/* Search bar by pokemon name or id */}
                 <div className="search">
                     <label htmlFor="search">Search </label>
                     <input
@@ -84,8 +95,9 @@ const Pokemons = () => {
                         placeholder='Name or Id'
                         onChange={e => setToSearch(e.target.value)}
                     />
-                    <button onClick={ () => searchPokemon(toSearch) }>Search</button>
+                    <button onClick={ () => searchPokemon() }>Search</button>
                 </div>
+                {/* Filter pokemons by types */}
                 <div className="filter_bar">
                     <label htmlFor="types">Filter by Types: </label>
                     <select id="types" onChange={e => setType(e.target.value)}>
