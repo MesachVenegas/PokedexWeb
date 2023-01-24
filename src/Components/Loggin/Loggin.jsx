@@ -1,23 +1,22 @@
 import './loggin.css'
-import React from 'react';
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setUserName } from '../../Store/slices/user.slice';
 import avatar from '../../assets/imgs/oak.png'
 import vector from '../../assets/imgs/pokeball.svg';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUserName } from '../../Store/slices/user.slice';
 
 const Loggin = () => {
     const dispatch = useDispatch()
-    const userName = useSelector( state => state.userName);
+    const navigate = useNavigate();
     const [inputValue, setInputValue] = useState("")
 
     const submit = e =>{
         e.preventDefault();
-        if(inputValue){
-            dispatch(setUserName(inputValue))
-        }
+        dispatch(setUserName(inputValue))
+        navigate("/pokemons")
     }
-    console.log(userName);
+
     return (
         <div className='loggin_container'>
             <img src={ vector } alt="pokeball" className='background_pokeball'/>
