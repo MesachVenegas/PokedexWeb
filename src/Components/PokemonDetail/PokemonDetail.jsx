@@ -6,6 +6,7 @@ import axios from 'axios';
 const PokemonDetail = () => {
     const { name } = useParams();
     const [defaultImg, setDefaultImage] = useState(altImg)
+    const [consultStatus, setConsultStatus] = useState(0)
     const [data, setData] = useState({});
     const [pokeName, setPokeName] = useState('')
     const [types, setTypes] = useState('');
@@ -28,8 +29,12 @@ const PokemonDetail = () => {
                 } else if (res.data?.sprites.front_default) {
                     setDefaultImage(res.data?.sprites.front_default)
                 }
+                setConsultStatus(res.status)
             })
-            .catch(res => console.log(res))
+            .catch(res =>{
+                setData(undefined)
+                setConsultStatus(res.response?.status)
+            })
     }
 
 
@@ -67,55 +72,62 @@ const PokemonDetail = () => {
         getData()
     },[name])
 
-    // ? data.sprites?.front_default : altImg
-    return (
-        <>
-            <div className='hero_pokemon'>
-                <h1>{pokeName}</h1>
-                <figure className='pokemon_sprite'>
-                    <img
-                        src={ defaultImg }
-                        alt={`${pokeName}-sprite`}
-                    />
-                </figure>
-            </div>
-            <div>
-                <ul>
-                    <li>Types: {types}</li>
-                    <li>
-                        <label htmlFor="hp">Hp</label>
-                        <progress id="hp" max="255" value={hp}></progress>
-                        <span>{hp}</span>
-                    </li>
-                    <li>
-                        <label htmlFor="attack">Attack</label>
-                        <progress id="attack" max="255" value={attack}></progress>
-                        <span>{attack}</span>
-                    </li>
-                    <li>
-                        <label htmlFor="special-attack">Special Attack</label>
-                        <progress id="special-attack" max="255" value={specialAttack}></progress>
-                        <span>{specialAttack}</span>
-                    </li>
-                    <li>
-                        <label htmlFor="special-defense">Defense</label>
-                        <progress id="special-defense" max="255" value={specialDefense}></progress>
-                        <span>{specialDefense}</span>
-                    </li>
-                    <li>
-                        <label htmlFor="defense">Special Defense</label>
-                        <progress id="defense" max="255" value={defense}></progress>
-                        <span>{defense}</span>
-                    </li>
-                    <li>
-                        <label htmlFor="speed">Speed</label>
-                        <progress id="speed" max="255" value={speed}></progress>
-                        <span>{speed}</span>
-                    </li>
-                </ul>
-            </div>
-        </>
-    );
+    if(!data){
+        return(
+            <>
+                <h1>No existe</h1>
+            </>
+        )
+    }else{
+        return (
+            <>
+                <div className='hero_pokemon'>
+                    <h1>{pokeName}</h1>
+                    <figure className='pokemon_sprite'>
+                        <img
+                            src={ defaultImg }
+                            alt={`${pokeName}-sprite`}
+                        />
+                    </figure>
+                </div>
+                <div>
+                    <ul>
+                        <li>Types: {types}</li>
+                        <li>
+                            <label htmlFor="hp">Hp</label>
+                            <progress id="hp" max="255" value={hp}></progress>
+                            <span>{hp}</span>
+                        </li>
+                        <li>
+                            <label htmlFor="attack">Attack</label>
+                            <progress id="attack" max="255" value={attack}></progress>
+                            <span>{attack}</span>
+                        </li>
+                        <li>
+                            <label htmlFor="special-attack">Special Attack</label>
+                            <progress id="special-attack" max="255" value={specialAttack}></progress>
+                            <span>{specialAttack}</span>
+                        </li>
+                        <li>
+                            <label htmlFor="special-defense">Defense</label>
+                            <progress id="special-defense" max="255" value={specialDefense}></progress>
+                            <span>{specialDefense}</span>
+                        </li>
+                        <li>
+                            <label htmlFor="defense">Special Defense</label>
+                            <progress id="defense" max="255" value={defense}></progress>
+                            <span>{defense}</span>
+                        </li>
+                        <li>
+                            <label htmlFor="speed">Speed</label>
+                            <progress id="speed" max="255" value={speed}></progress>
+                            <span>{speed}</span>
+                        </li>
+                    </ul>
+                </div>
+            </>
+        );
+    }
 };
 
 export default PokemonDetail;
