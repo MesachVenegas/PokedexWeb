@@ -79,10 +79,6 @@ const Pokemons = () => {
         }
     },[ type ])
 
-    /*
-    <label for="file">File progress:</label>
-    <progress id="file" max="100" value="70"> 70% </progress>
-    */
 
     return (
         <div className='pokemons_container'>
