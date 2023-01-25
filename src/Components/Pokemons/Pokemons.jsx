@@ -2,27 +2,27 @@ import logo from '../../assets/imgs/pokemon-logo.png';
 import bg_vector from '../../assets/imgs/pokeball.svg';
 import PokemonCard from '../PokemonCard/PokemonCard';
 import Loading from '../Loading/Loading';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios'
 import './pokemons.css'
 
 const Pokemons = () => {
+    const navigate = useNavigate();
     const userName = useSelector(state => state.userName);
     const [pokemonTypes, setPokemonTypes] = useState([])
     const [pokemons, setPokemons] = useState([])
     const [change, setChange] = useState(false)
     const [type, setType] = useState("")
     const [toSearch, setToSearch] = useState('')
-    const [toShow, setToShow] = useState(null)
+    const [loader, setLoader] = useState(false)
 
 
     const getPokemons = async () =>{
-        // ?offset=0&limit=1279
-        // ?limit=21
-        await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=21')
+        await axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1279')
             .then(res =>{
-                setPokemons(res.data)
+                setPokemons(res.data.results)
             })
             .catch(error => console.log(error))
     }
@@ -44,10 +44,8 @@ const Pokemons = () => {
 
     // se encarga del renderizado de la lista de pokemon según el termino de busqueda.
     const loadPokemons = () =>{
-        if (toShow) {
-            return ( <PokemonCard key={toSearch} pokemon={null} searchResult={toShow} /> )
-        }else if(!change) {
-            return pokemons.results?.map(pokemon => {
+        if(!change) {
+            return pokemons?.map(pokemon => {
                 return(<PokemonCard key={pokemon.name} pokemon={pokemon} searchByName={null} />)
             })
         } else {
@@ -87,9 +85,9 @@ const Pokemons = () => {
                             type="search"
                             value={toSearch}
                             placeholder='Name or Id'
-                            onChange={e => setToSearch(e.target.value)}
+                            onChange={e => setToSearch(e.target.value.toLowerCase())}
                         />
-                        <button onClick={ () => searchPokemon() }>Search</button>
+                        <button onClick={ () => navigate(`/pokemons/${toSearch}`) }>Search</button>
                     </div>
                     {/* Filter pokemons by types */}
                     <div className="filter_bar">
@@ -103,6 +101,12 @@ const Pokemons = () => {
                             }
                         </select>
                     </div>
+                </div>
+                <div className="pagination_container">
+                    <button>Prev</button>
+                    <ul className='pagination_menu'>
+                    </ul>
+                    <button>Next</button>
                 </div>
             </div>
 
