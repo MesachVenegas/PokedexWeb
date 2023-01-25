@@ -34,8 +34,8 @@
 .pokemon_sprite{
     display: grid;
     place-items: center;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-image: url('../../assets/imgs/pokeball.svg');
     background-size: cover;
     background-position: center;
@@ -43,8 +43,14 @@
 }
 
 .pokemon_sprite > img{
-    width: 90%;
+    max-width: 200px;
+    max-height: 200px;
     object-fit: cover;
+}
+
+.pokemon_sprite > img:hover{
+    transform: scale(1.5);
+    z-index: 10;
 }
 
 .type{
