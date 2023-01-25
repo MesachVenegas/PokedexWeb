@@ -1,0 +1,151 @@
+
+{
+    "backgrounds":[
+        {
+            "name": "bug",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/0/05/Type_Background_Bug.png/revision/latest?cb=20171026003543"
+        },
+        {
+            "name": "dark",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f5/Type_Background_Dark.png/revision/latest?cb=20171026003554"
+        },
+        {
+            "name": "dragon",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/2/28/Type_Background_Dragon.png/revision/latest?cb=20171026003601"
+        },
+        {
+            "name": "electric",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/6/6c/Type_Background_Electric.png/revision/latest?cb=20171026003611"
+        },
+        {
+            "name": "fairy",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/1/19/Type_Background_Fairy.png/revision/latest?cb=20171026003635"
+        },
+        {
+            "name": "fighting",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/1/17/Type_Background_Fighting.png/revision/latest?cb=20171026003644"
+        },
+        {
+            "name": "fire",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/6/64/Type_Background_Fire.png/revision/latest?cb=20171026003653"
+        },
+        {
+            "name": "flying",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/6/65/Type_Background_Flying.png/revision/latest?cb=20171026004151"
+        },
+        {
+            "name": "ghost",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/4/44/Type_Background_Ghost.png/revision/latest?cb=20171026003713"
+        },
+        {
+            "name": "grass",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/9/92/Type_Background_Grass.png/revision/latest?cb=20171026003722"
+        },
+        {
+            "name": "ground",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/a/a3/Type_Background_Ground.png/revision/latest?cb=20171026003731"
+        },
+        {
+            "name": "ice",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/8/85/Type_Background_Ice.png/revision/latest?cb=20171026003739"
+        },
+        {
+            "name": "normal",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f6/Type_Background_Normal.png/revision/latest?cb=20171026003751"
+        },
+        {
+            "name": "poison",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/d/db/Type_Background_Poison.png/revision/latest?cb=20171026003759"
+        },
+        {
+            "name": "psychic",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f8/Type_Background_Psychic.png/revision/latest?cb=20171026003814"
+        },
+        {
+            "name": "rock",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/5/5d/Type_Background_Rock.png/revision/latest?cb=20171026003823"
+        },
+        {
+            "name": "steel",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/3/30/Type_Background_Steel.png/revision/latest?cb=20171026003833"
+        },
+        {
+            "name": "water",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/d/d2/Type_Background_Water.png/revision/latest?cb=20171026003849"
+        }
+    ],
+    "icons": [
+                {
+                    "name": "bug",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/8/88/Icon_Bug.png/revision/latest?cb=20171219195822"
+                },
+                {
+                    "name": "dark",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/e/e9/Icon_Dark.png/revision/latest?cb=20171219195823"
+                },
+                {
+                    "name": "dragon",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/d/d4/Icon_Dragon.png/revision/latest?cb=20171219195823"
+                },
+                {
+                    "name": "electric",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/1/1c/Icon_Electric.png/revision/latest?cb=20171219195824"
+                },
+                {
+                    "name": "fairy",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/7/7f/Icon_Fairy.png/revision/latest?cb=20171219195824"
+                },
+                {
+                    "name": "fighting",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f0/Icon_Fighting.png/revision/latest?cb=20171219195825"
+                },
+                {
+                    "name": "fire",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/0/0a/Icon_Fire.png/revision/latest?cb=20171219195825"
+                },
+                {
+                    "name": "flying",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/b/b0/Icon_Flying.png/revision/latest?cb=20171219195826"
+                },
+                {
+                    "name": "ghost",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/7/7d/Icon_Ghost.png/revision/latest?cb=20171219195826"
+                },
+                {
+                    "name": "grass",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/0/0a/Icon_Grass.png/revision/latest?cb=20171219195826"
+                },
+                {
+                    "name": "ground",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/7/71/Icon_Ground.png/revision/latest?cb=20171219195827"
+                },
+                {
+                    "name": "ice",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/5/52/Icon_Ice.png/revision/latest?cb=20171219195828"
+                },
+                {
+                    "name": "normal",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/4/43/Icon_Normal.png/revision/latest?cb=20171219195828"
+                },
+                {
+                    "name": "poison",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/2/26/Icon_Poison.png/revision/latest?cb=20171219195828"
+                },
+                {
+                    "name": "psychic",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/c/ce/Icon_Psychic.png/revision/latest?cb=20171219195829"
+                },
+                {
+                    "name": "rock",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/5/57/Icon_Rock.png/revision/latest?cb=20171219195830"
+                },
+                {
+                    "name": "steel",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/3/38/Icon_Steel.png/revision/latest?cb=20171219195830"
+                },
+                {
+                    "name": "water",
+                    "url": "https://static.wikia.nocookie.net/pokemongo/images/6/65/Icon_Water.png/revision/latest?cb=20171219195830"
+                }
+    ]
+}
