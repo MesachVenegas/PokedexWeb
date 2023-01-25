@@ -2,11 +2,87 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import altImg from  '../../assets/imgs/whoIs.png'
 import axios from 'axios';
+import source from '../data.json'
 import './pokemoncard.css'
 
-const PokemonCard = ({ pokemon, searchResult }) => {
+const PokemonCard = ({ pokemon }) => {
+    const backgrounds = [
+        {
+            "name": "bug",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/0/05/Type_Background_Bug.png/revision/latest?cb=20171026003543"
+        },
+        {
+            "name": "dark",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f5/Type_Background_Dark.png/revision/latest?cb=20171026003554"
+        },
+        {
+            "name": "dragon",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/2/28/Type_Background_Dragon.png/revision/latest?cb=20171026003601"
+        },
+        {
+            "name": "electric",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/6/6c/Type_Background_Electric.png/revision/latest?cb=20171026003611"
+        },
+        {
+            "name": "fairy",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/1/19/Type_Background_Fairy.png/revision/latest?cb=20171026003635"
+        },
+        {
+            "name": "fighting",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/1/17/Type_Background_Fighting.png/revision/latest?cb=20171026003644"
+        },
+        {
+            "name": "fire",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/6/64/Type_Background_Fire.png/revision/latest?cb=20171026003653"
+        },
+        {
+            "name": "flying",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/6/65/Type_Background_Flying.png/revision/latest?cb=20171026004151"
+        },
+        {
+            "name": "ghost",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/4/44/Type_Background_Ghost.png/revision/latest?cb=20171026003713"
+        },
+        {
+            "name": "grass",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/9/92/Type_Background_Grass.png/revision/latest?cb=20171026003722"
+        },
+        {
+            "name": "ground",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/a/a3/Type_Background_Ground.png/revision/latest?cb=20171026003731"
+        },
+        {
+            "name": "ice",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/8/85/Type_Background_Ice.png/revision/latest?cb=20171026003739"
+        },
+        {
+            "name": "normal",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f6/Type_Background_Normal.png/revision/latest?cb=20171026003751"
+        },
+        {
+            "name": "poison",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/d/db/Type_Background_Poison.png/revision/latest?cb=20171026003759"
+        },
+        {
+            "name": "psychic",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f8/Type_Background_Psychic.png/revision/latest?cb=20171026003814"
+        },
+        {
+            "name": "rock",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/5/5d/Type_Background_Rock.png/revision/latest?cb=20171026003823"
+        },
+        {
+            "name": "steel",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/3/30/Type_Background_Steel.png/revision/latest?cb=20171026003833"
+        },
+        {
+            "name": "water",
+            "url": "https://static.wikia.nocookie.net/pokemongo/images/d/d2/Type_Background_Water.png/revision/latest?cb=20171026003849"
+        }
+    ]
     const navigate = useNavigate();
     const [defaultImg, setDefaultImage] = useState(altImg)
+    const [bg, setBg] = useState('')
     const [data, setData] = useState({});
     const [name, setName] =  useState('')
     const [types, setTypes] = useState('');
@@ -29,15 +105,22 @@ const PokemonCard = ({ pokemon, searchResult }) => {
                 }
             })
             .catch(res => console.log(res))
-    }
+        }
 
     useEffect( () => {
         getData()
-    },[pokemon])
+        backgroundByType(data.types)
+    },[pokemon, bg])
 
-    // const getSprite = () =>{
-
-    // }
+    const backgroundByType = (typeList) =>{
+        let pokemonType = typeList?.[0]?.type.name;
+        backgrounds.forEach(background =>{
+            if(background.name == pokemonType){
+                setBg(background.url);
+            }else{
+            }
+        })
+    }
 
     const loadTypes = (typeList) => {
         setTypes(typeList?.map(type => type.type.name).join(' - '))
@@ -50,23 +133,19 @@ const PokemonCard = ({ pokemon, searchResult }) => {
     const loadStats = (stats) => {
         stats.forEach(stat => {
             let statName =  stat.stat?.name;
-            switch(statName){
-                case 'hp':
-                    setHp(stat.base_stat);
-                case 'attack':
-                    setAttack(stat.base_stat)
-                case 'defense':
-                    setDefense(stat.base_stat)
-                case 'speed':
-                    setSpeed(stat.base_stat)
-                default:
-                    return
-            }
+            if(statName == 'hp') setHp(stat.base_stat);
+            if(statName == 'attack') setAttack(stat.base_stat);
+            if(statName == 'defense') setDefense(stat.base_stat);
+            if(statName == 'speed') setSpeed(stat.base_stat);
         });
     }
 
     return (
-        <div className='pokemon_card' onClick={() => navigate(`/pokemons/${data.name}`)}>
+        <div
+            className='pokemon_card'
+            style={{ backgroundImage: bg }}
+            onClick={() => navigate(`/pokemons/${data.name}`)}
+        >
             <h3>{name}</h3>
             <figure className='pokemon_sprite'>
                 <img

@@ -20,7 +20,7 @@ const Pokemons = () => {
     const [toSearch, setToSearch] = useState('')
     const [typeTitle, setTypeTitle] = useState('All')
     let toShow = [];
-    let perPage = 8;
+    let perPage = 3;
     let end = page * perPage;
     let start = end - perPage;
     toShow = pokemons?.slice(start, end);
@@ -85,8 +85,6 @@ const Pokemons = () => {
         else {
             getPokemons()
         }
-        console.log(toShow);
-        console.log(lastPage);
     },[ type ])
 
 
@@ -132,10 +130,10 @@ const Pokemons = () => {
                     </div>
                     <div className="settings_box">
                         <span>
-                            <i class="fa-solid fa-moon"></i>
+                            <i className="fa-solid fa-moon"></i>
                         </span>
                         <span className='gear'>
-                            <i class="fa-solid fa-gear"></i>
+                            <i className="fa-solid fa-gear"></i>
                         </span>
                     </div>
                 </div>
