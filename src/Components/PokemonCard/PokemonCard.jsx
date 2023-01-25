@@ -16,7 +16,7 @@ const PokemonCard = ({ pokemon, searchResult }) => {
     const [speed, setSpeed] = useState('')
 
     const getData = async () => {
-        axios.get(pokemon.url)
+        axios.get(pokemon?.url)
             .then(res => {
                 setData(res.data)
                 capitalizeName(res.data.name)
@@ -34,7 +34,6 @@ const PokemonCard = ({ pokemon, searchResult }) => {
     useEffect( () => {
         getData()
     },[pokemon])
-    console.log(defaultImg);
 
     // const getSprite = () =>{
 
