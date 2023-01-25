@@ -1,11 +1,91 @@
-.pokemons_container{
+.pokemons_container {
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 65%;
+    /* background-image: url('../../assets/imgs/pokeball.svg');
+    background-size: contain; */
 }
 
-.cards_container{
+.header{
+    position: absolute;
+    top: 0;
+    width: 105%;
+    z-index: 30;
+}
+
+.header_title{
+    text-align: center;
+    color: #f1f1f1;
+    background-color: rgba(255, 31, 31, 1);
+    padding: 1em;
+}
+
+.header_title> h2{
+    margin: 0;
+}
+
+.logo{
+    width: 250px;
+}
+
+.subheader{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    background-color: #000;
+}
+
+.search_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.search_container> input{
+    width: 75%;
+    height: 30px;
+    padding: 1em;
+    border-radius: 1em 0 0 1em;
+}
+
+.search_container> input:focus{
+    outline: none;
+}
+
+.search_container> button{
+    position: relative;
+    border-radius: 0 1em 1em 0;
+    background-color: rgba(255, 31, 31, 1);
+    font-weight: bold;
+    color: #f1f1f1;
+    width: 15%;
+    height: 31px;
+    left: -20p;
+    border: none;
+}
+
+.filter_bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 90%;
+    color: #f1f1f1;
+}
+
+.filter_bar > select{
+    width: 45%;
+    height: 30px;
+}
+
+.cards_container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,6 +95,21 @@
     gap: 2em;
 }
 
-.logo{
-    width: 200px;
+
+@media screen and (min-width: 480px) {
+    .pokemons_container{
+        margin-top: 45%;
+    }
+}
+
+@media screen and (min-width: 789px) {
+    .pokemons_container{
+        margin-top: 25%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .pokemons_container{
+        margin-top: 19%;
+    }
 }
