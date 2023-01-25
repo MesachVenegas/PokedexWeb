@@ -67,7 +67,7 @@
     text-align: center;
     border-radius: 1em;
     border: 1px solid rgba(0, 0, 0, .2);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, .6), 0px 12px 20px rgba(0, 0, 0, .9);
+    box-shadow: var(--shadow);
 }
 
 .input_box > input[id='user']:focus{
@@ -81,8 +81,8 @@
     height: 35px;
     border: none;
     border-radius: 50%;
-    background-color: rgb(14, 213, 127);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, .6), 0px 12px 20px rgba(0, 0, 0, .9);
+    background-color: var(--bg-green);
+    box-shadow: var(--shadow);
 }
 
 .loggin_submit:hover{

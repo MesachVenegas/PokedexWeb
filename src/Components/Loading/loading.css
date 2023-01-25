@@ -7,7 +7,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, .2);
+    background-color: var(--bg-crystal);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
     z-index: 50;
@@ -62,8 +62,8 @@
 
 @keyframes pulse {
     0%{
-        background-color: rgba(250, 31, 31, 0.904);
-        box-shadow: 0 0 16px rgba(250, 64, 64, 0.904);
+        background-color: var(--first-color);
+        box-shadow: var(--shadow-red);
     }
     100%{
         background-color: transparent;

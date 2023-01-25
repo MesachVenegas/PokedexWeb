@@ -8,6 +8,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    --bg-color: #d2d2d2;
+    --bg-white: #FFF;
+    --bg-black: #000;
+    --bg-green: rgb(14, 213, 127);
+    --bg-crystal: rgba(255, 255, 255, .2);
+    --shadow: 0 8px 16px rgba(0, 0, 0, .2), 0 12px 20px rgba(0, 0, 0, .7);
+    --shadow-red: 0 0 16px rgba(250, 64, 64, 0.904);
+    --text-light: #f1f1f1;
+    --first-color: rgba(255, 31, 31, 1);
 }
 
 
@@ -15,8 +24,7 @@
 body {
     margin: 0;
     display: flex;
-    padding: 2em;
     min-width: 320px;
     min-height: 100vh;
-    background-color: #d2d2d2;
+    background-color: var(--bg-color);
 }

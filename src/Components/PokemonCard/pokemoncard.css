@@ -7,7 +7,7 @@
     width: 240px;
     padding: 1em;
     border-radius: 1em;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, .2) , 0 12px 20px rgba(0, 0, 0, .7);
+    box-shadow: var(--shadow);
     cursor: pointer;
 }
 
@@ -28,7 +28,7 @@
     padding: 2em .2em;
     list-style: none;
     border-radius: 1em;
-    background-color: #fff;
+    background-color: var(--bg-white);
 }
 
 .pokemon_sprite{
@@ -88,13 +88,12 @@
 }
 
 .bar_box> ::-webkit-progress-value{
-    /* background-color: rgb(248, 57, 43); */
     border-radius: .5em;
 }
 
 /* Compatibility progress bar to Mozilla */
 .bar_box> ::-moz-progress-bar{
-    background: rgb(248, 57, 43);
+    background: var(--first-color);
     border-radius: .5em;
 }
 

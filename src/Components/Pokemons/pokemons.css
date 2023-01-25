@@ -18,8 +18,8 @@
 
 .header_title{
     text-align: center;
-    color: #f1f1f1;
-    background-color: rgba(255, 31, 31, 1);
+    color: var(--text-light);
+    background-color: var(--first-color);
     padding: 1em;
 }
 
@@ -38,7 +38,7 @@
     align-items: center;
     gap: 1em;
     padding: 1em;
-    background-color: #000;
+    background-color: var(--bg-black);
 }
 
 .search_container{
@@ -62,9 +62,9 @@
 .search_container> button{
     position: relative;
     border-radius: 0 1em 1em 0;
-    background-color: rgba(255, 31, 31, 1);
+    background-color: var(--first-color);
     font-weight: bold;
-    color: #f1f1f1;
+    color: var(--text-light);
     width: 15%;
     height: 31px;
     left: -20p;
@@ -77,7 +77,7 @@
     align-items: center;
     gap: 1em;
     width: 90%;
-    color: #f1f1f1;
+    color: var(--text-light);
 }
 
 .filter_bar > select{
@@ -100,7 +100,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #FFF;
+    padding: .5em 0;
+    background-color: var(--bg-white);
 }
 
 .pagination_menu{
