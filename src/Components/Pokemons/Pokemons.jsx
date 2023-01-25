@@ -122,22 +122,21 @@ const Pokemons = () => {
                 </div>
                 <div className="pagination_container">
                     <div className="navigation">
-                        <button
-                            onClick={() => setPage(page - 1)}
-                            disabled={page === 1}
-                        >
+                        <button onClick={() => setPage(page - 1)} disabled={page === 1} >
                                 Prev
                         </button>
                         <span>{ page }</span>
-                        <button
-                            onClick={() => setPage(page + 1)}
-                            disabled={ page === lastPage }
-                        >
+                        <button onClick={() => setPage(page + 1)} disabled={ page === lastPage } >
                             Next
                         </button>
                     </div>
                     <div className="settings_box">
-                        <i className="fa-solid fa-gears"></i>
+                        <span>
+                            <i class="fa-solid fa-moon"></i>
+                        </span>
+                        <span className='gear'>
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
                     </div>
                 </div>
             </div>

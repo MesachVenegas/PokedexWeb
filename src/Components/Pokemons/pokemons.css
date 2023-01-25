@@ -114,6 +114,68 @@
     gap: 1em;
 }
 
+.navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    height: 35px;
+    width: 85%;
+}
+
+.navigation > button{
+    font-weight: bold;
+    width: 100px;
+    height: 80%;
+}
+
+.navigation> span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+}
+
+.settings_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    height: 35px;
+    width: 10%;
+}
+
+.settings_box > span{
+    font-size: 1.2em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 70%;
+    cursor: pointer;
+}
+
+.settings_box > span:hover{
+    color: var(--first-color);
+}
+
+.settings_box > .gear:hover{
+    animation: spin .8s infinite ;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(90deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
 @media screen and (min-width: 480px) {
     .pokemons_container{
         margin-top: 55%;
