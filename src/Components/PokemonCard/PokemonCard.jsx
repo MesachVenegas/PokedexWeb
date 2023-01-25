@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import altImg from  '../../assets/imgs/whoIs.png'
+import axios from 'axios';
 import './pokemoncard.css'
 
 const PokemonCard = ({ pokemon, searchResult }) => {
+    const navigate = useNavigate();
+    const [defaultImg, setDefaultImage] = useState(altImg)
     const [data, setData] = useState({});
     const [name, setName] =  useState('')
     const [types, setTypes] = useState('');
@@ -19,17 +22,23 @@ const PokemonCard = ({ pokemon, searchResult }) => {
                 capitalizeName(res.data.name)
                 loadTypes(res.data.types)
                 loadStats(res.data.stats)
+                if (res.data?.sprites.other.dream_world.front_default) {
+                    setDefaultImage(res.data?.sprites.other.dream_world.front_default);
+                } else if (res.data?.sprites.front_default) {
+                    setDefaultImage(res.data?.sprites.front_default)
+                }
             })
             .catch(res => console.log(res))
     }
 
     useEffect( () => {
-        if( searchResult) {
-            console.log(searchResult);
-        }else{
-            getData()
-        }
-    },[pokemon, searchResult])
+        getData()
+    },[pokemon])
+    console.log(defaultImg);
+
+    // const getSprite = () =>{
+
+    // }
 
     const loadTypes = (typeList) => {
         setTypes(typeList?.map(type => type.type.name).join(' - '))
@@ -57,13 +66,13 @@ const PokemonCard = ({ pokemon, searchResult }) => {
         });
     }
 
-
     return (
-        <div className='pokemon_card'>
+        <div className='pokemon_card' onClick={() => navigate(`/pokemons/${data.name}`)}>
             <h3>{name}</h3>
             <figure className='pokemon_sprite'>
                 <img
-                    src={data.sprites?.front_default ? data.sprites?.front_default : altImg} alt="sprite-pokemon"
+                    src={defaultImg}
+                    alt={`${name}-sprite`}
                 />
             </figure>
             <div className="data_container">
