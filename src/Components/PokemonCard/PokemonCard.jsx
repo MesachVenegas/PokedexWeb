@@ -57,46 +57,39 @@ const PokemonCard = ({ pokemon, searchResult }) => {
         });
     }
 
+
     return (
         <div className='pokemon_card'>
             <h3>{name}</h3>
+            <figure className='pokemon_sprite'>
+                <img
+                    src={data.sprites?.front_default ? data.sprites?.front_default : altImg} alt="sprite-pokemon"
+                />
+            </figure>
             <div className="data_container">
                 <ul className='pokemon_data'>
                     <li className='type'>Types: {types}</li>
                     <li className='bar_box'>
-                        Hp:
-                        <div className='bar_container'>
-                            <span className='bar_fill' style={{minWidth: hp + 'px'}}></span>
-                        </div>
-                        {hp}
+                        <label htmlFor="hp">Hp</label>
+                        <progress id="hp" max="255" value={hp}>{hp}</progress>
+                        <span>{hp}</span>
                     </li>
                     <li className='bar_box'>
-                        Attack:
-                        <div className='bar_container'>
-                            <span className='bar_fill' style={{minWidth: attack + 'px'}}></span>
-                        </div>
-                        {attack}
+                        <label htmlFor="attack">Attack</label>
+                        <progress id="attack" max="255" value={attack}>{attack}</progress>
+                        <span>{attack}</span>
                     </li>
                     <li className='bar_box'>
-                        Defense:
-                        <div className='bar_container'>
-                            <span className='bar_fill' style={{minWidth: defense + 'px'}}></span>
-                        </div>
-                        {defense}
+                        <label htmlFor="defense">Defense</label>
+                        <progress id="defense" max="255" value={defense}>{defense}</progress>
+                        <span>{defense}</span>
                     </li>
                     <li className='bar_box'>
-                        Speed:
-                        <div className='bar_container'>
-                            <span className='bar_fill' style={{minWidth: speed + 'px'}}></span>
-                        </div>
-                        {speed}
+                        <label htmlFor="speed">Speed</label>
+                        <progress id="speed" max="255" value={speed}>{speed}</progress>
+                        <span>{speed}</span>
                     </li>
                 </ul>
-                <figure className='pokemon_sprite'>
-                    <img
-                        src={ data.sprites?.front_default ? data.sprites?.front_default : altImg } alt="sprite-pokemon"
-                    />
-                </figure>
             </div>
         </div>
     );

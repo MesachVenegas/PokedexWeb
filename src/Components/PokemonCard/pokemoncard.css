@@ -4,11 +4,10 @@
     justify-content: center;
     align-items: center;
     width: 300px;
-    padding: 0 1em;
+    padding: 1em;
     border-radius: 1em;
     box-shadow: 0 8px 16px rgba(0, 0, 0, .2) , 0 12px 20px rgba(0, 0, 0, .7);
     cursor: pointer;
-    background-color: rgb(140, 140, 245);
 }
 
 .pokemon_card:hover{
@@ -17,7 +16,7 @@
 
 .data_container{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -26,7 +25,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     list-style: none;
 }
 
@@ -43,7 +42,7 @@
 
 .pokemon_sprite > img{
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .type{
@@ -52,25 +51,46 @@
 
 .bar_box{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    width: 100%;
+    justify-content: center;
     align-items: center;
     gap: .5em;
 }
 
-.bar_container{
-    display: flex;
-    flex-direction: row;
-    min-width: 150px;
-    max-height: 10px;
-    border-radius: 1em;
-    background-color: rgba(60, 60, 60, .4);
+.bar_box > label{
+    width: 60px;
+    font-weight: bold;
 }
 
-.bar_fill{
-    display: inline-block;
-    height: 10px;
+.bar_box > progress{
+    -webkit-appearance: none;
+    appearance: none;
     border-radius: 1em;
-    background-color: rgb(231, 55, 69);
-    transition: left .3s ease;
+}
+/* Los pseudo-elementos usados por WebKit/Blink para dar estilo a otras partes del elemento <progress>:
+    ::-webkit-progress-bar
+    ::-webkit-progress-value
+    ::-webkit-progress-inner-element
+    ::-moz-progress-bar
+    ::-ms-fill */
+
+.bar_box > ::-webkit-progress-bar{
+    background-color: #3c3c3c;
+    border-radius: 1em;
+}
+
+.bar_box> ::-webkit-progress-value{
+    background-color: rgb(248, 57, 43);
+    border-radius: .5em;
+}
+
+/* Compatibility progress bar to Mozilla */
+.bar_box> ::-moz-progress-bar{
+    background-color: rgb(248, 57, 43);
+    border-radius: .5em;
+}
+
+
+.bar_box > span{
+    width: 35px;
 }
