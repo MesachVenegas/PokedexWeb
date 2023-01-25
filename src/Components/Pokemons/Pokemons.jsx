@@ -1,12 +1,14 @@
+import logo from '../../assets/imgs/pokemon-logo.png';
+import bg_vector from '../../assets/imgs/pokeball.svg';
 import PokemonCard from '../PokemonCard/PokemonCard';
 import Loading from '../Loading/Loading';
-import logo from '../../assets/imgs/pokemon-logo.png'
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios'
 import './pokemons.css'
 
 const Pokemons = () => {
+    const userName = useSelector(state => state.userName);
     const [pokemonTypes, setPokemonTypes] = useState([])
     const [pokemons, setPokemons] = useState([])
     const [change, setChange] = useState(false)
@@ -14,19 +16,7 @@ const Pokemons = () => {
     const [toSearch, setToSearch] = useState('')
     const [toShow, setToShow] = useState(null)
 
-    const userName = useSelector(state => state.userName);
 
-    // Search pokemon by name or id.
-    // const searchPokemon= async () =>{
-    //     await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300')
-    //         .then(res => {
-    //             res.data.results?.forEach(pokemon => {
-    //                 console.log(pokemon);
-    //             })
-    //         })
-    //         .catch(error => console.log(error))
-    // }
-    // Trae el total de pokemons disponibles.
     const getPokemons = async () =>{
         // ?offset=0&limit=1279
         // ?limit=21
@@ -82,34 +72,37 @@ const Pokemons = () => {
 
     return (
         <div className='pokemons_container'>
+            {/* <img src={bg_vector} alt="pokebal_vector" className='bg_vector'/> */}
             <div className="header">
-                <div className="header">
+                {/* Titulo del complemento */}
+                <div className="header_title">
                     <img src={logo} alt="pokemon_logo" className='logo'/>
                     <h2>Welcome! { userName } here you can find your favorite pokemon</h2>
                 </div>
-                {/* Search bar by pokemon name or id */}
-                <div className="search">
-                    <label htmlFor="search">Search </label>
-                    <input
-                        id='search'
-                        type="search"
-                        value={toSearch}
-                        placeholder='Name or Id'
-                        onChange={e => setToSearch(e.target.value)}
-                    />
-                    <button onClick={ () => searchPokemon() }>Search</button>
-                </div>
-                {/* Filter pokemons by types */}
-                <div className="filter_bar">
-                    <label htmlFor="types">Filter by Types: </label>
-                    <select id="types" onChange={e => setType(e.target.value)}>
-                        <option key='default_option' value={null} defaultChecked>Seleccionar</option>
-                        {
-                            pokemonTypes?.map( type =>(
-                                <option key={type.name} value={type.name}>{type.name}</option>
-                            ))
-                        }
-                    </select>
+                <div className="subheader">
+                    {/* Search bar by pokemon name or id */}
+                    <div className="search_container">
+                        <input
+                            id='search'
+                            type="search"
+                            value={toSearch}
+                            placeholder='Name or Id'
+                            onChange={e => setToSearch(e.target.value)}
+                        />
+                        <button onClick={ () => searchPokemon() }>Search</button>
+                    </div>
+                    {/* Filter pokemons by types */}
+                    <div className="filter_bar">
+                        <label htmlFor="types">Filter by Types: </label>
+                        <select id="types" onChange={e => setType(e.target.value)}>
+                            <option key='default_option' value={null} defaultChecked>Seleccionar</option>
+                            {
+                                pokemonTypes?.map( type =>(
+                                    <option key={type.name} value={type.name}>{type.name}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
                 </div>
             </div>
 
