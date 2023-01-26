@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import altImg from '../../assets/imgs/whoIs.png'
+import vector from '../../assets/imgs/pokeball.svg'
 import axios from 'axios';
+import './pokemondetail.css'
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -81,50 +83,54 @@ const PokemonDetail = () => {
     }else{
         return (
             <>
-                <div className='hero_pokemon'>
-                    <h1>{pokeName}</h1>
-                    <figure className='pokemon_sprite'>
-                        <img
-                            src={ defaultImg }
-                            alt={`${pokeName}-sprite`}
-                        />
+                <div className='hero_pokemon' style={{backgroundColor: 'green'}}>
+                    <h1 className='title'>{pokeName}</h1>
+                    <span>{`#${data.id}`}</span>
+                    <figure className='sprite'>
+                        <img src={ defaultImg } alt={`${pokeName}-sprite`} />
                     </figure>
+                    <img src={vector} alt="vector_bg" className='vector_bg' />
                 </div>
-                <div>
-                    <ul>
-                        <li>Types: {types}</li>
-                        <li>
-                            <label htmlFor="hp">Hp</label>
-                            <progress id="hp" max="255" value={hp}></progress>
-                            <span>{hp}</span>
-                        </li>
-                        <li>
-                            <label htmlFor="attack">Attack</label>
-                            <progress id="attack" max="255" value={attack}></progress>
-                            <span>{attack}</span>
-                        </li>
-                        <li>
-                            <label htmlFor="special-attack">Special Attack</label>
-                            <progress id="special-attack" max="255" value={specialAttack}></progress>
-                            <span>{specialAttack}</span>
-                        </li>
-                        <li>
-                            <label htmlFor="special-defense">Defense</label>
-                            <progress id="special-defense" max="255" value={specialDefense}></progress>
-                            <span>{specialDefense}</span>
-                        </li>
-                        <li>
-                            <label htmlFor="defense">Special Defense</label>
-                            <progress id="defense" max="255" value={defense}></progress>
-                            <span>{defense}</span>
-                        </li>
-                        <li>
-                            <label htmlFor="speed">Speed</label>
-                            <progress id="speed" max="255" value={speed}></progress>
-                            <span>{speed}</span>
-                        </li>
-                    </ul>
-                </div>
+                <ul className='stats_container'>
+                    <li className="stat_box types">
+                        <h3>{types}</h3>
+                    </li>
+                    <li className="stat_box">
+                        <label htmlFor="hp">Base Exp</label>
+                        <progress id="hp" max="255" value={data.base_experience}></progress>
+                        <span>{data.base_experience}</span>
+                    </li>
+                    <li className="stat_box">
+                        <label htmlFor="hp">Hp</label>
+                        <progress id="hp" max="255" value={hp}></progress>
+                        <span>{hp}</span>
+                    </li>
+                    <li className="stat_box">
+                        <label htmlFor="attack">Attack</label>
+                        <progress id="attack" max="255" value={attack}></progress>
+                        <span>{attack}</span>
+                    </li>
+                    <li className="stat_box">
+                        <label htmlFor="special-attack">Special Attack</label>
+                        <progress id="special-attack" max="255" value={specialAttack}></progress>
+                        <span>{specialAttack}</span>
+                    </li>
+                    <li className="stat_box">
+                        <label htmlFor="special-defense">Defense</label>
+                        <progress id="special-defense" max="255" value={specialDefense}></progress>
+                        <span>{specialDefense}</span>
+                    </li>
+                    <li className="stat_box">
+                        <label htmlFor="defense">Special Defense</label>
+                        <progress id="defense" max="255" value={defense}></progress>
+                        <span>{defense}</span>
+                    </li>
+                    <li className="stat_box">
+                        <label htmlFor="speed">Speed</label>
+                        <progress id="speed" max="255" value={speed}></progress>
+                        <span>{speed}</span>
+                    </li>
+                </ul>
             </>
         );
     }

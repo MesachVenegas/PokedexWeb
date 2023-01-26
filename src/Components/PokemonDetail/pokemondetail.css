@@ -1,0 +1,100 @@
+.hero_pokemon{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.hero_pokemon .title{
+    font-size: 2em;
+    color: var(--text-light);
+}
+
+.vector_bg{
+    position: absolute;
+    transform: rotate(40deg);
+    opacity: .5;
+    left: 40%;
+    top: 30%;
+    width: 100%;
+    z-index: 1;
+}
+
+.sprite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    z-index: 10;
+}
+
+.sprite > img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.sprite > img:hover{
+    transform: scale(1.2);
+}
+
+.stats_container{
+    position: relative;
+    display: flex;
+    top: -7%;
+    padding: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    list-style: none;
+    background-color: var(--bg-white);
+    gap: 1em;
+}
+
+.stat_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: .5em;
+}
+
+.stat_box.types{
+    justify-content: center;
+}
+
+.stat_box > label{
+    width: 150px;
+}
+
+.stat_box >progress {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 1em;
+    width: 50%;
+}
+
+.stat_box> ::-webkit-progress-bar {
+    background-color: #3c3c3c;
+    border-radius: 1em;
+}
+
+.stat_box> ::-webkit-progress-value {
+    border-radius: .5em;
+}
+
+/* Compatibility progress bar to Mozilla */
+.stat_box> ::-moz-progress-bar {
+    background: var(--first-color);
+    border-radius: .5em;
+}
+
+
+@media screen and (min-width: 498px) {
+    .sprite{
+        width: 450px;
+    }
+}
