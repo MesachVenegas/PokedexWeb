@@ -1,6 +1,6 @@
 import logo from '../../assets/imgs/pokemon-logo.png';
-import bg_vector from '../../assets/imgs/pokeball.svg';
 import PokemonCard from '../PokemonCard/PokemonCard';
+import bg_vector from '../../assets/imgs/pokeball.svg';
 import Loading from '../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';

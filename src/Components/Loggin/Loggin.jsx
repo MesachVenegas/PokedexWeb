@@ -4,7 +4,7 @@ import vector from '../../assets/imgs/pokeball.svg';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setUserName } from '../../Store/slices/user.slice';
+import { setUserName } from '../../store/slices/user.slice';
 
 const Loggin = () => {
     const dispatch = useDispatch()
