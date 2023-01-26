@@ -20,7 +20,7 @@ const Pokemons = () => {
     const [toSearch, setToSearch] = useState('')
     const [typeTitle, setTypeTitle] = useState('All')
     let toShow = [];
-    let perPage = 3;
+    let perPage = 20;
     let end = page * perPage;
     let start = end - perPage;
     toShow = pokemons?.slice(start, end);
