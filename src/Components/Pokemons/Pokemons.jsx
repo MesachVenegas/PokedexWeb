@@ -1,7 +1,5 @@
 import logo from '../../assets/imgs/pokemon-logo.png';
 import PokemonCard from '../PokemonCard/PokemonCard';
-import bg_vector from '../../assets/imgs/pokeball.svg';
-import Loading from '../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -31,6 +29,7 @@ const Pokemons = () => {
             .then(res =>{
                 setPokemons(res.data.results)
                 setLastPage(Math.ceil(res.data.results?.length / perPage));
+                setPage(1)
             })
             .catch(error => console.log(error))
     }
@@ -47,6 +46,7 @@ const Pokemons = () => {
                 setTypeTitle(type)
                 setPokemons(res.data.pokemon)
                 setChange(true)
+                setPage(1)
             })
             .catch( error => console.log( error))
     }

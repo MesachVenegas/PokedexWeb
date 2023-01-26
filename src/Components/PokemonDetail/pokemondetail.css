@@ -8,6 +8,19 @@
     padding: 1em;
 }
 
+.number{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    font-size: 1.3em;
+    color: var(--text-light);
+    top: 9%;
+    right: 10%;
+    width: 70px;
+    border-radius: 1em;
+    background-color: var(--bg-crystal);
+}
+
 .hero_pokemon .title{
     font-size: 2em;
     color: var(--text-light);

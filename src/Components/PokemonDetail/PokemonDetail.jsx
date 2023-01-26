@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import altImg from '../../assets/imgs/whoIs.png'
 import vector from '../../assets/imgs/pokeball.svg'
 import axios from 'axios';
+import bgTypes from '../data.json'
 import './pokemondetail.css'
 
 const PokemonDetail = () => {
@@ -18,6 +19,7 @@ const PokemonDetail = () => {
     const [specialDefense, setSpecialDefense] = useState('')
     const [defense, setDefense] = useState('');
     const [speed, setSpeed] = useState('')
+    let background = 'none';
 
     const getData = async () => {
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -35,8 +37,20 @@ const PokemonDetail = () => {
             })
             .catch(res =>{
                 setData(undefined)
-                setConsultStatus(res.response?.status)
+                setConsultStatus(res.response)
             })
+    }
+
+    const getBgByType = () =>{
+        const type = data.types?.[0].type;
+        bgTypes.backgrounds.forEach( typeJson =>{
+            if(typeJson.name == type?.name){
+                background = `url("${typeJson.url}")`;
+                console.log('entre');
+                console.log(background);
+                return background;
+            }
+        })
     }
 
 
@@ -74,6 +88,7 @@ const PokemonDetail = () => {
         getData()
     },[name])
 
+    console.log(getBgByType());
     if(!data){
         return(
             <>
@@ -83,11 +98,11 @@ const PokemonDetail = () => {
     }else{
         return (
             <>
-                <div className='hero_pokemon' style={{backgroundColor: 'green'}}>
+                <div className='hero_pokemon' style={{backgroundImage: getBgByType()} }>
                     <h1 className='title'>{pokeName}</h1>
-                    <span>{`#${data.id}`}</span>
+                    <span className='number'>{`#${data.id}`}</span>
                     <figure className='sprite'>
-                        <img src={ defaultImg } alt={`${pokeName}-sprite`} />
+                        <img src={ defaultImg} alt={`${pokeName}-sprite`} />
                     </figure>
                     <img src={vector} alt="vector_bg" className='vector_bg' />
                 </div>
