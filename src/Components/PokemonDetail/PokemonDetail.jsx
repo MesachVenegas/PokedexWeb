@@ -98,7 +98,7 @@ const PokemonDetail = () => {
     }else{
         return (
             <>
-                <div className='hero_pokemon' style={{backgroundImage: getBgByType()} }>
+                <div className='hero_pokemon' style={{backgroundImage: background } }>
                     <h1 className='title'>{pokeName}</h1>
                     <span className='number'>{`#${data.id}`}</span>
                     <figure className='sprite'>
