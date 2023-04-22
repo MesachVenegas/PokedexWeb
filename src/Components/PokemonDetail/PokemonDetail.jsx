@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Description from '../Description/description'
 import altImg from '../../assets/imgs/whoIs.png'
 import vector from '../../assets/imgs/pokeball.svg'
 import axios from 'axios';
@@ -41,13 +42,12 @@ const PokemonDetail = () => {
             })
     }
 
+
     const getBgByType = () =>{
         const type = data.types?.[0].type;
         bgTypes.backgrounds.forEach( typeJson =>{
             if(typeJson.name == type?.name){
                 background = `url("${typeJson.url}")`;
-                console.log('entre');
-                console.log(background);
                 return background;
             }
         })
@@ -84,11 +84,13 @@ const PokemonDetail = () => {
         });
     }
 
-    useEffect( () =>{
+
+    useEffect(  () =>{
         getData()
     },[name])
 
-    console.log(getBgByType());
+    getBgByType()
+
     if(!data){
         return(
             <>
@@ -98,6 +100,7 @@ const PokemonDetail = () => {
     }else{
         return (
             <>
+            {/* Representación del pokemon */}
                 <div className='hero_pokemon' style={{backgroundImage: background } }>
                     <h1 className='title'>{pokeName}</h1>
                     <span className='number'>{`#${data.id}`}</span>
@@ -106,6 +109,11 @@ const PokemonDetail = () => {
                     </figure>
                     <img src={vector} alt="vector_bg" className='vector_bg' />
                 </div>
+
+                {/* Description of abilities of pokemon */}
+                <Description data={ data } />
+
+                {/* estadísticas base del pokemon */}
                 <ul className='stats_container'>
                     <li className="stat_box types">
                         <h3>{types}</h3>
