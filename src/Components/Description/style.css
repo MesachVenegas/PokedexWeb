@@ -1,0 +1,12 @@
+.abilities{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em;
+    top: -10px;
+    border-radius: 15px;
+    background: var(--bg-white);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
