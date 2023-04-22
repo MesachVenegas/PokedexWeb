@@ -28,11 +28,11 @@
 
 .hero_pokemon .title{
     position: relative;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
     color: var(--text-light);
     text-align: center;
-    top: -9%;
+    top: -6%;
     width: 250px;
     border-radius: 1em;
     background-color: var(--bg-crystal);
