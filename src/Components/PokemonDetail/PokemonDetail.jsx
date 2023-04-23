@@ -6,6 +6,7 @@ import vector from '../../assets/imgs/pokeball.svg'
 import axios from 'axios';
 import bgTypes from '../data.json'
 import './pokemondetail.css'
+import Moves from '../moves/Moves';
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -13,7 +14,7 @@ const PokemonDetail = () => {
     const [consultStatus, setConsultStatus] = useState(0)
     const [data, setData] = useState({});
     const [pokeName, setPokeName] = useState('')
-    const [types, setTypes] = useState('');
+    const [types, setTypes] = useState();
     const [hp, setHp] = useState('');
     const [attack, setAttack] = useState('')
     const [specialAttack, setSpecialAttack] = useState('')
@@ -103,7 +104,7 @@ const PokemonDetail = () => {
             {/* Representación del pokemon */}
                 <div className='hero_pokemon' style={{backgroundImage: background } }>
                     <h1 className='title'>{pokeName}</h1>
-                    <span className='number'>{`#${data.id}`}</span>
+                    <span className='number'>{`#${data?.id}`}</span>
                     <figure className='sprite'>
                         <img src={ defaultImg} alt={`${pokeName}-sprite`} />
                     </figure>
@@ -154,6 +155,9 @@ const PokemonDetail = () => {
                         <span>{speed}</span>
                     </li>
                 </ul>
+
+                {/* List of pokemon movements */}
+                <Moves  data={ data }/>
             </>
         );
     }
