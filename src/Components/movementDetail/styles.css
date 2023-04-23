@@ -48,6 +48,8 @@
     background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
+
+/* background color by type of attack */
 .fairy{
     background-color: palevioletred;
 }
@@ -102,4 +104,20 @@
 .water{
     background-color: blue;
     color: whitesmoke;
+}
+
+/* background color by constet type attack */
+/*
+    Carisma = naranja claro
+    Dureza = Amarillo claro
+    Ingenio + Verde claro
+    Dulzura = rosa claro
+    Belleza = azul cielo
+*/
+.tough{
+    background-color: rgb(248, 240, 129);
+}
+
+.cool{
+    background-color: rgb(243, 139, 139);
 }

@@ -12,17 +12,18 @@ const MovementDetail = ({url}) => {
     const [name, setName] = useState(null)
     const [power, setPower] = useState(null)
     const [damageType, setDamageType] = useState(null)
+    const [concurseType, setConcurseType] = useState(null)
 
     const getData = async () =>{
         await axios.get(url)
             .then(res => {
-                console.log(res.data)
                 setName(res.data.name)
                 setPP(res.data.pp);
                 setAccuracy(res.data.accuracy);
                 setType(res.data.type.name);
                 setPower(res.data.power);
                 setDamageType(res.data.damage_class.name)
+                setConcurseType(res.data.contest_type.name)
 
                 // get effect description if language is english and not is null.
                 if(res.data.effect_entries.length > 0){
@@ -48,6 +49,7 @@ const MovementDetail = ({url}) => {
             })
             .catch(err => console.error(err))
     }
+
     useEffect(() => {
         getData()
     }, [url])
@@ -60,6 +62,9 @@ const MovementDetail = ({url}) => {
                     <div className='move_stats'>
                         <span className={type}>
                             Type: {type?.charAt(0).toLocaleUpperCase()+ type?.slice(1)}
+                        </span>
+                        <span className={concurseType}>
+                            Contest Type: {concurseType}
                         </span>
                         <span>
                             Accuracy: {accuracy ? accuracy : "N/A"}
