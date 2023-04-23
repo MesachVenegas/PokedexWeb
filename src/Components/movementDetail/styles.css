@@ -40,6 +40,7 @@
 
 .dark{
     background-color: #1d3354;
+    color: white;
 }
 
 .dragon{
@@ -73,6 +74,7 @@
 
 .ground{
     background-color: #754F44;
+    color: whitesmoke;
 }
 
 .ice{
@@ -81,10 +83,12 @@
 
 .poison{
     background-color: #39304A;
+    color: whitesmoke;
 }
 
 .psychic{
-    background-color: purple;;
+    background-color: purple;
+    color: whitesmoke;
 }
 
 .rock{
@@ -97,4 +101,5 @@
 
 .water{
     background-color: blue;
+    color: whitesmoke;
 }
