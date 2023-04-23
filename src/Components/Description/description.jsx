@@ -6,6 +6,7 @@ const description = ({ data }) => {
     const [abilityName, setAbilityName] = useState("")
     const [effect, setEffect] = useState();
 
+    // get url of ability data to request.
     const getUrl =  () => {
         data.abilities?.map((abilities)=>{
             if(!abilities?.is_hidden){
@@ -17,6 +18,7 @@ const description = ({ data }) => {
 
     }
 
+    // Get description from special ability in ability.effects_entries property
     const getEffect = async (url) => {
         await axios.get(url)
             .then( res => {
