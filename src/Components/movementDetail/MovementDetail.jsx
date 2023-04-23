@@ -101,7 +101,7 @@ const MovementDetail = ({url}) => {
                             PP: {pp}
                         </span>
                         <span>
-                            Heal Drain: {drain ? drain : "N/A"}
+                            Health Drain: {drain ? drain : "N/A"}
                         </span>
                         <span>
                             Crit Rate: {critRate ? critRate : "N/A"}

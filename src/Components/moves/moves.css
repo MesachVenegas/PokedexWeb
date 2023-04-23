@@ -33,9 +33,9 @@
 .move_detail{
     display: flex;
     position: fixed;
-    top: 0;
+    top: 5%;
     flex-direction: column;
-    width: 75%;
+    width: 85%;
     padding: 1em;
     border-radius: 1em;
     background-color: var(--bg-movement);
