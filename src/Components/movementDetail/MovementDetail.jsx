@@ -34,16 +34,16 @@ const MovementDetail = ({url}) => {
                 setPower(res.data.power);
                 setDamageType(res.data.damage_class?.name)
                 setConcurseType(res.data.contest_type?.name)
-                setCategory(res.data.meta.category?.name)
-                setDrain(res.data.meta.drain)
-                setMaxHits(res.data.meta.max_hits)
-                setMinHits(res.data.meta.min_hits)
-                setCritRate(res.data.meta.crit_rate)
-                setMaxTurns(res.data.meta.max_turns)
-                setMinTurns(res.data.meta.min_turns)
-                setFlinch(res.data.meta.flinch_chance)
-                setState(res.data.meta.stat_chance)
-                console.log(res.data.meta)
+                setCategory(res.data.meta?.category?.name)
+                setDrain(res.data.meta?.drain)
+                setMaxHits(res.data.meta?.max_hits)
+                setMinHits(res.data.meta?.min_hits)
+                setCritRate(res.data.meta?.crit_rate)
+                setMaxTurns(res.data.meta?.max_turns)
+                setMinTurns(res.data.meta?.min_turns)
+                setFlinch(res.data.meta?.flinch_chance)
+                setState(res.data.meta?.stat_chance)
+                // console.log(res.data.meta)
                 // get effect description if language is english and not is null.
                 if(res.data.effect_entries.length > 0){
                     res.data.effect_entries?.map(entry =>{
@@ -76,14 +76,14 @@ const MovementDetail = ({url}) => {
     return (
         <>
             <motion.div className='box_movement'>
-                <h2>{name?.charAt(0).toLocaleUpperCase() + name?.slice(1).replace('-', " ")}</h2>
+                <motion.h2>{name?.charAt(0).toLocaleUpperCase() + name?.slice(1).replace('-', " ")}</motion.h2>
                 <motion.div className='movement_data'>
                     <div className='move_stats'>
                         <span className={type}>
                             Type: {type?.charAt(0).toLocaleUpperCase()+ type?.slice(1)}
                         </span>
                         <span className={concurseType}>
-                            Contest Type: { concurseType?.charAt(0).toLocaleUpperCase() + concurseType?.slice(1) }
+                            Contest Type: {concurseType?   concurseType?.charAt(0).toLocaleUpperCase() + concurseType?.slice(1) : "None" }
                         </span>
                         <span>
                             Damage Type: { damageType? damageType.charAt(0).toLocaleUpperCase() + damageType.slice(1) : "N/A" }
@@ -92,7 +92,7 @@ const MovementDetail = ({url}) => {
                             Category: {category? category : "N/A"}
                         </span>
                         <span>
-                            Accuracy: {accuracy ? accuracy : "N/A"}
+                            Accuracy: {accuracy ?`${accuracy}%` : "N/A"}
                         </span>
                         <span>
                             Power: {power ? power : "N/A"}

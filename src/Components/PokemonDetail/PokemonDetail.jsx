@@ -7,6 +7,7 @@ import axios from 'axios';
 import bgTypes from '../data.json'
 import './pokemondetail.css'
 import Moves from '../moves/Moves';
+import EvolutionCard from '../Evolutions/EvolutionCard';
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -158,6 +159,9 @@ const PokemonDetail = () => {
 
                 {/* List of pokemon movements */}
                 <Moves  data={ data }/>
+
+                {/* Evolutions steps of pokemon */}
+                <EvolutionCard id={ data.id }/>
             </>
         );
     }

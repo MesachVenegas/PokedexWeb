@@ -35,7 +35,7 @@
     position: fixed;
     top: 5%;
     flex-direction: column;
-    width: 85%;
+    width: 80%;
     padding: 1em;
     border-radius: 1em;
     background-color: var(--bg-movement);
