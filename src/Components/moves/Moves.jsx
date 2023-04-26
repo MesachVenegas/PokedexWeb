@@ -35,7 +35,7 @@ const Moves = ({ data }) => {
                 { selectedId && (
                     <motion.div className='move_detail' layoutId={selectedId} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .4 }}>
                         <motion.button className='close_btn' onClick={ () => setSelectedId(null) }>
-                            <i className="fa-solid fa-xmark"></i>
+                            <motion.i className="fa-solid fa-xmark"></motion.i>
                         </motion.button>
                         <MovementDetail  url={selectedUrl}/>
                     </motion.div>
