@@ -74,64 +74,62 @@ const MovementDetail = ({url}) => {
     }, [url])
 
     return (
-        <>
-            <motion.div className='box_movement'>
-                <motion.h2>{name?.charAt(0).toLocaleUpperCase() + name?.slice(1).replace('-', " ")}</motion.h2>
-                <motion.div className='movement_data'>
-                    <div className='move_stats'>
-                        <span className={type}>
-                            Type: {type?.charAt(0).toLocaleUpperCase()+ type?.slice(1)}
-                        </span>
-                        <span className={concurseType}>
-                            Contest Type: {concurseType?   concurseType?.charAt(0).toLocaleUpperCase() + concurseType?.slice(1) : "None" }
-                        </span>
-                        <span>
-                            Damage Type: { damageType? damageType.charAt(0).toLocaleUpperCase() + damageType.slice(1) : "N/A" }
-                        </span>
-                        <span>
-                            Category: {category? category : "N/A"}
-                        </span>
-                        <span>
-                            Accuracy: {accuracy ?`${accuracy}%` : "N/A"}
-                        </span>
-                        <span>
-                            Power: {power ? power : "N/A"}
-                        </span>
-                        <span>
-                            PP: {pp}
-                        </span>
-                        <span>
-                            Health Drain: {drain ? drain : "N/A"}
-                        </span>
-                        <span>
-                            Crit Rate: {critRate ? critRate : "N/A"}
-                        </span>
-                        <span>
-                            Max Hits: {maxHits? maxHits : "N/A"}
-                        </span>
-                        <span>
-                            Min Hits: {minHits? minHits : "N/A"}
-                        </span>
-                        <span>
-                            Max Turns: {maxTurns? maxTurns : "N/A"}
-                        </span>
-                        <span>
-                            Min Turns: {minTurns? minTurns : "N/A"}
-                        </span>
-                        <span>
-                            Flinch Chance: {flinch? `${flinch}%` : "N/A"}
-                        </span>
-                        <span>
-                            Stat Chance: {state? `${state}%` : "N/A"}
-                        </span>
-                    </div>
-                    <h4>Description:</h4>
-                    <p>{description ? description : "N/A"}</p>
-                    <h4>Effect: </h4>
-                    <p>{effect ? effect : "N/A"}</p>
+        <motion.div className='box_movement'>
+            <motion.h2>{name?.charAt(0).toLocaleUpperCase() + name?.slice(1).replace('-', " ")}</motion.h2>
+            <motion.div className='movement_data'>
+                <motion.div className='move_stats'>
+                    <motion.span className={type}>
+                        Type: {type?.charAt(0).toLocaleUpperCase()+ type?.slice(1)}
+                    </motion.span>
+                    <motion.span className={concurseType}>
+                        Contest Type: {concurseType?   concurseType?.charAt(0).toLocaleUpperCase() + concurseType?.slice(1) : "None" }
+                    </motion.span>
+                    <motion.span>
+                        Damage Type: { damageType? damageType.charAt(0).toLocaleUpperCase() + damageType.slice(1) : "N/A" }
+                    </motion.span>
+                    <motion.span>
+                        Category: {category? category : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Accuracy: {accuracy ?`${accuracy}%` : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Power: {power ? power : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        PP: {pp}
+                    </motion.span>
+                    <motion.span>
+                        Health Drain: {drain ? drain : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Crit Rate: {critRate ? critRate : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Max Hits: {maxHits? maxHits : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Min Hits: {minHits? minHits : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Max Turns: {maxTurns? maxTurns : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Min Turns: {minTurns? minTurns : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Flinch Chance: {flinch? `${flinch}%` : "N/A"}
+                    </motion.span>
+                    <motion.span>
+                        Stat Chance: {state? `${state}%` : "N/A"}
+                    </motion.span>
                 </motion.div>
+                <motion.h4>Description:</motion.h4>
+                <motion.p>{description ? description : "N/A"}</motion.p>
+                <motion.h4>Effect: </motion.h4>
+                <motion.p>{effect ? effect : "N/A"}</motion.p>
             </motion.div>
-        </>
+        </motion.div>
     );
 };
 
