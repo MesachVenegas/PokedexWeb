@@ -27,10 +27,10 @@ const PokemonDetail = () => {
     const getData = async () => {
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then(res => {
-                setData(res.data)
-                capitalizeName(res.data.name)
-                loadStats(res.data.stats)
-                loadTypes(res.data.types)
+                setData(res?.data)
+                capitalizeName(res?.data.name)
+                loadStats(res?.data.stats)
+                loadTypes(res?.data.types)
                 if (res.data?.sprites.other.dream_world.front_default) {
                     setDefaultImage(res.data?.sprites.other.dream_world.front_default);
                 } else if (res.data?.sprites.front_default) {
@@ -161,7 +161,7 @@ const PokemonDetail = () => {
                 <Moves  data={ data }/>
 
                 {/* Evolutions steps of pokemon */}
-                <EvolutionCard id={ data.id }/>
+                <EvolutionCard id={ data?.id }/>
             </>
         );
     }
