@@ -104,8 +104,10 @@ const PokemonDetail = () => {
             <>
             {/* Representación del pokemon */}
                 <div className='hero_pokemon' style={{backgroundImage: background } }>
-                    <h1 className='title'>{pokeName}</h1>
-                    <span className='number'>{`#${data?.id}`}</span>
+                    <div className="head_hero">
+                        <h1 className='title'>{pokeName}</h1>
+                        <span className='number'>{`#${data?.id}`}</span>
+                    </div>
                     <figure className='sprite'>
                         <img src={ defaultImg} alt={`${pokeName}-sprite`} />
                     </figure>
@@ -161,7 +163,7 @@ const PokemonDetail = () => {
                 <Moves  data={ data }/>
 
                 {/* Evolutions steps of pokemon */}
-                <EvolutionCard id={ data?.id }/>
+                <EvolutionCard id={ data?.id } bg= { background }/>
             </>
         );
     }
