@@ -1,26 +1,33 @@
 .hero_pokemon{
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
-    height: 75%;
+    gap: 4em;
+    /* height: 75%; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
+.head_hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
 .number{
     display: flex;
     justify-content: center;
-    position: absolute;
+    align-items: center;
     font-size: 1.3em;
     color: var(--text-light);
-    top: 9%;
-    right: 10%;
     width: 70px;
+    height: 30px;
     padding: .2em;
     border-radius: 1em;
     background-color: var(--bg-crystal);
@@ -53,7 +60,8 @@
     bottom: 50px;
     justify-content: center;
     align-items: center;
-    max-width: 250px;
+    width: 300px;
+    height: 100%;
     z-index: 10;
 }
 
@@ -63,7 +71,7 @@
 }
 
 .sprite > img:hover{
-    transform: scale(1.3);
+    transform: scale(1.4);
     z-index: 20;
 }
 
