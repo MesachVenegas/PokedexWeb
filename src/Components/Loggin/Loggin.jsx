@@ -1,7 +1,7 @@
 import './loggin.css'
 import avatar from '../../assets/imgs/oak.png'
 import vector from '../../assets/imgs/pokeball.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUserName } from '../../store/slices/user.slice';

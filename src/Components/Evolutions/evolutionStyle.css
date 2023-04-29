@@ -1,11 +1,18 @@
-.evolution_container{
+.evolves{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: var(--bg-white);
+}
+
+.evolution_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 2em;
     padding: 1.5em;
-    background-color: var(--bg-white);
 }
 
 .evolve_card{
@@ -13,27 +20,60 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 65%;
-    height: 350px;
     padding: 1em;
-    gap: 1.5em;
+    gap: .5em;
+    max-width: 250px;
+    max-height: 380px;
     cursor: pointer;
     border-radius: .5em;
-    box-shadow: var(--shadow);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: var(--shadow);
 }
 
-.evolve_card > h3{
+.evolve_card:hover{
+    position: relative;
+    top: -15px;
+    transition: top 2s ease-in;
+}
+
+.evolve_header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.evolve_header > span{
+    display: grid;
+    place-items: center;
+    height: 30px;
+    width:70px;
+    border-radius: .5em;
+    font-size: 1.3em;
+    color: var(--text-light);
+    background-color: var(--bg-crystal);
+}
+
+.evolve_header > h3{
     color: var(--text-light);
     padding: .4em;
-    border-radius: .5em;
+    border-radius: .7em;
     background-color: var(--bg-crystal);
     font-size: 1.4em;
 }
 
-.evolve_card > img{
-    width: 100%;
+.sprite_container{
+    display: grid;
+    place-items: center;
+    max-width: 350px;
+    height: 450px;
+}
+
+.sprite_container > img{
+    width: 90%;
     height: 100%;
     object-fit: contain;
 }

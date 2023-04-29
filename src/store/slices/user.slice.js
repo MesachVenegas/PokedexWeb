@@ -6,6 +6,7 @@ export const userNameSlice = createSlice({
     reducers: {
         setUserName: (state, action) =>{
             const inputValue = action.payload
+            sessionStorage.setItem('userToken', inputValue)
             return inputValue;
         }
     }

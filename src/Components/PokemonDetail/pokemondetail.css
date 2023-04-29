@@ -1,19 +1,29 @@
-.hero_pokemon{
-    position: relative;
+.detail_layout{
     display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 1.5em;
+    gap: 2em;
+}
+
+.hero_pokemon{
+    display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* overflow: hidden; */
+    overflow: hidden;
     width: 100%;
+    min-height: 750px;
     gap: 4em;
-    /* height: 75%; */
+    border-radius: 1em;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .head_hero{
+    justify-self: flex-start;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -31,6 +41,7 @@
     padding: .2em;
     border-radius: 1em;
     background-color: var(--bg-crystal);
+    z-index: 2;
 }
 
 .hero_pokemon .title{
@@ -43,16 +54,17 @@
     width: 250px;
     border-radius: 1em;
     background-color: var(--bg-crystal);
+    z-index: 2;
 }
 
 .vector_bg{
     position: absolute;
     transform: rotate(30deg);
     opacity: .5;
-    bottom: 60px;
-    width: 65%;
-    z-index: 1;
-}
+    width: calc(100vw - 10%);
+    height: calc(100vh - 60%);
+    z-index: 0;
+    animation: pulse 1s infinite linear }
 
 .sprite{
     display: flex;
@@ -60,18 +72,18 @@
     bottom: 50px;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 100%;
+    width: 250px;
+    height: 480px;
     z-index: 10;
 }
 
 .sprite > img{
-    width: 100%;
+    width: 90%;
     object-fit: cover;
 }
 
 .sprite > img:hover{
-    transform: scale(1.4);
+    transform: scale(1.2);
     z-index: 20;
 }
 
@@ -128,8 +140,26 @@
 }
 
 
+@keyframes pulse {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
 @media screen and (min-width: 498px) {
     .sprite{
-        width: 450px;
+        width: 350px;
+    }
+
+    .vector_bg{
+        width: calc(100vw - 5%);
+        height: calc(100vh - 25%);
     }
 }

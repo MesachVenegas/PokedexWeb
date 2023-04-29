@@ -89,6 +89,7 @@ const PokemonDetail = () => {
 
     useEffect(  () =>{
         getData()
+        console.log(document.window)
     },[name])
 
     getBgByType()
@@ -101,7 +102,7 @@ const PokemonDetail = () => {
         )
     }else{
         return (
-            <>
+            <div className='screen_sizer detail_layout'>
             {/* Representación del pokemon */}
                 <div className='hero_pokemon' style={{backgroundImage: background } }>
                     <div className="head_hero">
@@ -164,7 +165,7 @@ const PokemonDetail = () => {
 
                 {/* Evolutions steps of pokemon */}
                 <EvolutionCard id={ data?.id } bg= { background }/>
-            </>
+            </div>
         );
     }
 };
