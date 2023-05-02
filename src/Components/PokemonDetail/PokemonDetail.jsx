@@ -22,12 +22,14 @@ const PokemonDetail = () => {
     const [specialDefense, setSpecialDefense] = useState('')
     const [defense, setDefense] = useState('');
     const [speed, setSpeed] = useState('')
+    const positionY = window.scrollY;
     let background = 'none';
 
     const getData = async () => {
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then(res => {
                 setData(res?.data)
+                document.title = `Pokedex | ${res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)}`
                 capitalizeName(res?.data.name)
                 loadStats(res?.data.stats)
                 loadTypes(res?.data.types)
@@ -89,7 +91,13 @@ const PokemonDetail = () => {
 
     useEffect(  () =>{
         getData()
-        console.log(document.window)
+        if(positionY > 0){
+            window.scrollTo({
+                top: 170,
+                left: 0,
+                behavior: 'smooth'
+            })
+        }
     },[name])
 
     getBgByType()
@@ -164,7 +172,7 @@ const PokemonDetail = () => {
                 <Moves  data={ data }/>
 
                 {/* Evolutions steps of pokemon */}
-                <EvolutionCard id={ data?.id } bg= { background }/>
+                <EvolutionCard id={ data?.id } />
             </div>
         );
     }

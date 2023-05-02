@@ -7,8 +7,9 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    --bg-color: #dbd9d9;
+    --bg-color: #c9c7c7;
     --bg-white: rgba(255, 255, 255,.8);
+    --bg-white_nt: #F1F1F1;
     --bg-black: #000;
     --bg-green: rgb(14, 213, 127);
     --bg-crystal: rgba(22, 22, 22, 0.534);
@@ -16,7 +17,9 @@
     --shadow: 0 8px 16px rgba(0, 0, 0, .2), 0 12px 20px rgba(0, 0, 0, .7);
     --shadow-red: 0 0 16px rgba(250, 64, 64, 0.904);
     --text-light: #f1f1f1;
+    --text: #000;
     --first-color: rgba(255, 31, 31, 1);
+    --bg-vector: #f1f1f19f;
 }
 
 
@@ -26,7 +29,19 @@ body {
     display: flex;
     min-width: 320px;
     min-height: 100vh;
+    color: var(--text);
     background-color: var(--bg-color);
+}
+
+body.Dark{
+    --bg-color: #161616;
+    --bg-white: #0c0c0cc9;
+    --bg-white_nt: #1f1f1f;
+    --bg-movement: rgba(46, 43, 43, 0.945);
+    --text-light: #f1f1f1de;
+    --text: #f1f1f1;
+    --first-color: rgb(88, 15, 15);
+    --bg-green: rgb(26, 128, 84);
 }
 
 

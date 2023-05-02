@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import altImg from  '../../assets/imgs/whoIs.png'
+import altImg from  '../../assets/imgs/whoIs.png';
+import bgTypes from '../data.json'
 import axios from 'axios';
-import source from '../data.json'
 import './pokemoncard.css'
 
 const PokemonCard = ({ pokemon }) => {
@@ -35,17 +35,18 @@ const PokemonCard = ({ pokemon }) => {
 
     useEffect( () => {
         getData()
-        backgroundByType(data.types)
     },[pokemon, bg])
 
-    const backgroundByType = (typeList) =>{
-        let pokemonType = typeList?.[0]?.type.name;
-        source.backgrounds.forEach(background =>{
-            if(background.name == pokemonType){
-                setBg(background.url);
-            }else{
+    const getBgByType = () => {
+        let bg;
+        const  type = data.types?.[0].type.name
+        bgTypes.backgrounds.forEach(typeJson => {
+            if (typeJson.name == type) {
+                bg = `url("${typeJson.url}")`;
+
             }
         })
+        return bg;
     }
 
     const loadTypes = (typeList) => {
@@ -69,10 +70,10 @@ const PokemonCard = ({ pokemon }) => {
     return (
         <div
             className='pokemon_card'
-            style={{ backgroundImage: bg }}
+            style={{ backgroundImage: getBgByType() }}
             onClick={() => navigate(`/pokemons/${data.name}`)}
         >
-            <h3>{name}</h3>
+            <h3 className='poke_name'>{name}</h3>
             <figure className='pokemon_sprite'>
                 <img
                     src={defaultImg}

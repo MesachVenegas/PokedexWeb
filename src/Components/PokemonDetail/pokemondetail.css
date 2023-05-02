@@ -58,13 +58,13 @@
 }
 
 .vector_bg{
-    position: absolute;
-    transform: rotate(30deg);
     opacity: .5;
+    position: absolute;
     width: calc(100vw - 10%);
     height: calc(100vh - 60%);
+    animation: pulse 3s infinite linear;
     z-index: 0;
-    animation: pulse 1s infinite linear }
+}
 
 .sprite{
     display: flex;
@@ -142,16 +142,15 @@
 
 @keyframes pulse {
     0%{
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
     }
     50%{
-        transform: scale(1.1);
+        transform: scale(1.1) rotate(180deg);
     }
     100%{
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
     }
 }
-
 
 @media screen and (min-width: 498px) {
     .sprite{

@@ -125,9 +125,9 @@ const MovementDetail = ({url}) => {
                     </motion.span>
                 </motion.div>
                 <motion.h4>Description:</motion.h4>
-                <motion.p>{description ? description : "N/A"}</motion.p>
+                <motion.p className='description_info'>{description ? description : "N/A"}</motion.p>
                 <motion.h4>Effect: </motion.h4>
-                <motion.p>{effect ? effect : "N/A"}</motion.p>
+                <motion.p className='effect_info'>{effect ? effect : "N/A"}</motion.p>
             </motion.div>
         </motion.div>
     );

@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import bgTypes from '../data.json'
 import './evolutionStyle.css'
 
-const EvolutionCard = ({ id, bg }) => {
+const EvolutionCard = ({ id }) => {
     const [evolvesChain, setEvolvesChain] = useState([]);
     const [pokemonData, setPokemonData] = useState([]);
     const navigate = useNavigate()
@@ -57,6 +58,17 @@ const EvolutionCard = ({ id, bg }) => {
         setPokemonData(datas)
     }
 
+    const getBgByType = (type) => {
+        let bg;
+        bgTypes.backgrounds.forEach(typeJson => {
+            if (typeJson.name == type) {
+                bg = `url("${typeJson.url}")`;
+
+            }
+        })
+        return bg;
+    }
+
     useEffect( () =>{
         getData(id)
     },[id])
@@ -79,7 +91,7 @@ const EvolutionCard = ({ id, bg }) => {
                             key={pokemon.id}
                             onClick={() => navigate(`/pokemons/${pokemon.name}`)}
                             style={{
-                                backgroundImage: bg
+                                backgroundImage: getBgByType(pokemon.types[0].type.name)
                             }}
                         >
                             <div className="evolve_header">

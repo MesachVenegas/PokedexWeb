@@ -39,8 +39,8 @@
     padding: 1em;
     border-radius: 1em;
     background-color: var(--bg-movement);
-    backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
     box-shadow: var(--shadow);
     z-index: 50;
 }
@@ -55,10 +55,12 @@
     border-radius: 10%;
     cursor: pointer;
     font-size: 1.4em;
+    color: var(--text);
+    background-color: var(--bg-white);
 }
 
 .close_btn:hover{
-    background-color: red;
+    background-color: var(--first-color);
     color: var(--text-light);
 }
 

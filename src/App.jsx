@@ -1,14 +1,16 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
 import PokemonDetail from './Components/PokemonDetail/PokemonDetail'
+import NavigationBar from './Components/NavigationBar/NavigationBar'
+import { HashRouter, Routes, Route } from 'react-router-dom'
+import ProtectedRoutes from './Components/ProtectedRoutes'
 import Pokemons from './Components/Pokemons/Pokemons'
 import Loggin from './Components/Loggin/Loggin'
 import './App.css'
-import ProtectedRoutes from './Components/ProtectedRoutes'
 
 function App() {
 
     return (
         <HashRouter>
+            <NavigationBar />
             <Routes>
                 <Route path='/' element={ <Loggin /> }/>
                 <Route element={ <ProtectedRoutes />}>

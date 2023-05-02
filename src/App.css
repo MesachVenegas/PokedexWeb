@@ -9,7 +9,7 @@
 
 
 body{
-    background-image: url("../public/images/bg_site.jpg");
+    background-image: url("/images/bg_site.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

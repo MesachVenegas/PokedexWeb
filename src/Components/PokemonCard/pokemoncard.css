@@ -6,7 +6,6 @@
     align-items: center;
     width: 280px;
     height: 100%;
-    padding: 1em;
     border-radius: 1em;
     box-shadow: var(--shadow);
     background-position: center;
@@ -15,12 +14,21 @@
     cursor: pointer;
 }
 
+.poke_name{
+    display: grid;
+    place-items: center;
+    width: 120px;
+    height: 35px;
+    border-radius: .5em;
+    color: var(--text-light);
+    background-color: var(--bg-crystal);
+}
+
 .data_container{
     display: flex;
-    position: relative;
     flex-direction: column;
     align-items: center;
-    top: 32px
+    width: 100%;
 }
 
 .pokemon_data{
@@ -30,7 +38,7 @@
     gap: .7em;
     justify-content: center;
     align-items: center;
-    padding: 2em 0em;
+    padding: 2em 0;
     list-style: none;
     border-radius: 1em;
     background-color: var(--bg-white);
