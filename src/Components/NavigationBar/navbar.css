@@ -35,12 +35,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     font-size: 1.2em;
     list-style: none;
     gap: 2em;
 }
 
 .menu_item {
+    display: grid;
+    place-items: center;
+    width: 100%;
     padding: .5em;
 }
 
@@ -83,6 +87,12 @@
 
     100% {
         opacity: 1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .menu_item {
+        width: fit-content;
     }
 }
 
