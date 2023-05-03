@@ -33,7 +33,7 @@
 .move_detail{
     display: flex;
     position: fixed;
-    top: 10%;
+    top: 5%;
     flex-direction: column;
     width: 90%;
     padding: 1em;
