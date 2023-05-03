@@ -18,20 +18,22 @@ const PokemonCard = ({ pokemon }) => {
     const [speed, setSpeed] = useState('')
 
     const getData = async () => {
-        axios.get(pokemon?.url)
-            .then(res => {
-                setData(res.data)
-                capitalizeName(res.data.name)
-                loadTypes(res.data.types)
-                loadStats(res.data.stats)
-                if (res.data?.sprites.other.dream_world.front_default) {
-                    setDefaultImage(res.data?.sprites.other.dream_world.front_default);
-                } else if (res.data?.sprites.front_default) {
-                    setDefaultImage(res.data?.sprites.front_default)
-                }
-            })
-            .catch(res => console.log(res))
+        if(pokemon?.url){
+            axios.get(pokemon?.url)
+                .then(res => {
+                    setData(res?.data)
+                    capitalizeName(res?.data.name)
+                    loadTypes(res?.data.types)
+                    loadStats(res?.data.stats)
+                    if (res.data?.sprites.other.dream_world.front_default) {
+                        setDefaultImage(res.data?.sprites.other.dream_world.front_default);
+                    } else if (res.data?.sprites.front_default) {
+                        setDefaultImage(res.data?.sprites.front_default)
+                    }
+                })
+                .catch(res => console.error(res))
         }
+    }
 
     useEffect( () => {
         getData()
