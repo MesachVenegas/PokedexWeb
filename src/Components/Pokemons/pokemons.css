@@ -42,11 +42,15 @@
 }
 
 .search_container>input {
-    width: 85%;
+    width: 65%;
     height: 40px;
     padding: 0 1em;
     border: none;
     border-radius: 1em 0 0 1em;
+    font-weight: bold;
+    border: 1px solid var(--text);
+    color: var(--text-light);
+    background-color: var(--bg-color);
 }
 
 .search_container>input:focus {
@@ -59,8 +63,15 @@
     background-color: var(--first-color);
     font-weight: bold;
     color: var(--text-light);
-    width: 15%;
+    width: 35%;
+    left: -2px;
     height: 40px;
+    border: 1px solid var(--text);
+    cursor: pointer;
+}
+
+.search_container > button:hover{
+    box-shadow: var(--shadow-red);
     border: none;
 }
 
