@@ -14,8 +14,9 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    min-height: 750px;
-    gap: 4em;
+    height: 500px;
+    padding: 3em 0;
+    gap: 1em;
     border-radius: 1em;
     background-repeat: no-repeat;
     background-size: cover;

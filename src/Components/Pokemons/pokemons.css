@@ -16,9 +16,12 @@
 
 .filters_container {
     display: flex;
+    position: sticky;
     justify-content: center;
     align-items: center;
     width: 100%;
+    top: 0;
+    z-index: 10;
 }
 
 .subheader {
@@ -106,6 +109,7 @@
 
 .pagination_container{
     display: flex;
+    top: 0;
     justify-content: center;
     align-items: center;
     width: 100%;

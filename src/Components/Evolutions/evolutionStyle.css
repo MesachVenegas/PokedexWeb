@@ -68,12 +68,12 @@
 .sprite_container{
     display: grid;
     place-items: center;
-    max-width: 350px;
+    width: 350px;
     height: 450px;
 }
 
 .sprite_container > img {
-    max-width: 300px;
+    max-width: 200px;
     height: 100%;
     object-fit: contain;
 }

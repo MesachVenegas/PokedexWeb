@@ -57,7 +57,6 @@ const Pokemons = () => {
             })
         } else {
             return toShow.map(data => {
-                const info = data?.pokemon
                 return (<PokemonCard key={data?.pokemon.name} pokemon={data?.pokemon} />)
             })
         }
@@ -70,6 +69,7 @@ const Pokemons = () => {
             .catch(error => console.log(error))
     }
 
+    // Capitalize pokemon types and create option list for filter.
     const capTypeName = () => {
         return pokemonTypes?.map(type => {
             return (
@@ -79,8 +79,6 @@ const Pokemons = () => {
             )
         })
     }
-
-
 
     useEffect( () =>{
         getPokemonTypes()

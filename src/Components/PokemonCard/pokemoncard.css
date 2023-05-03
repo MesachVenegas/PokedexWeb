@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
+    width: 90%;
     height: 100%;
     border-radius: 1em;
     box-shadow: var(--shadow);
@@ -113,4 +113,11 @@
 
 .bar_box > span{
     width: 35px;
+}
+
+
+@media screen and (min-width: 589px){
+    .pokemon_card {
+        width: 350px;
+    }
 }
