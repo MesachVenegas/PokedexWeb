@@ -12,6 +12,7 @@
 
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -64,65 +65,10 @@
     animation: flash 2s infinite linear;
 }
 
-.subheader {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: .5em;
-    width: 100%;
-    height: 70px;
-    font-weight: bold;
-    background-color: var(--bg-color);
+.nav_greetings {
+    padding: 1.5em;
 }
 
-.search_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 450px;
-}
-
-.search_container>input {
-    width: 100px;
-    height: 40px;
-    padding: 0 1em;
-    border: none;
-    border-radius: 1em 0 0 1em;
-}
-
-.search_container>input:focus {
-    outline: none;
-}
-
-.search_container>button {
-    position: relative;
-    border-radius: 0 1em 1em 0;
-    background-color: var(--first-color);
-    font-weight: bold;
-    color: var(--text-light);
-    width: 15%;
-    height: 31px;
-    left: -20p;
-    border: none;
-}
-
-.filter_bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    color: var(--text);
-}
-
-.filter_bar>select {
-    width: 200px;
-    height: 40px;
-    padding: 0 1em;
-    font-weight: bold;
-    border-radius: .5em;
-    color: var(--text);
-    background-color: var(--bg-color);
-}
 
 
 
