@@ -17,6 +17,13 @@ const Loggin = () => {
         navigate("/pokemons")
     }
 
+    useEffect( () => {
+        const title = document.title;
+        if(title !== 'Pokedex | Login'){
+            document.title = 'Pokedex | Login'
+        }
+    },[])
+
     return (
         <div className='loggin_container'>
             <img src={ vector } alt="pokeball" className='background_pokeball'/>
