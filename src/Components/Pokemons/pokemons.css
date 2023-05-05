@@ -21,7 +21,7 @@
     align-items: center;
     width: 100%;
     top: 0;
-    z-index: 10;
+    z-index: 15;
 }
 
 .subheader {
@@ -117,36 +117,34 @@
     background-color: var(--bg-white);
 }
 
-.pagination_menu{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 1em;
-    align-items: center;
-    list-style: none;
-    gap: 1em;
-}
-
 .navigation{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
     height: 35px;
-    width: 85%;
 }
 
 .navigation > button{
     font-weight: bold;
-    width: 100px;
-    height: 80%;
+    width: 60px;
+    height: 100%;
+    border-radius: 1em;
+    border: none;
+}
+
+.navigation > button:hover{
+    color: var(--text-light);
+    background-color: var(--first-color);
 }
 
 .navigation> span{
     display: flex;
     justify-content: center;
     align-items: center;
-    width:80%;
+    width:50%;
+    height: 100%;
+    font-weight: bold;
 }
 
 @keyframes spin{

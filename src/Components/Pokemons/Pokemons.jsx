@@ -39,6 +39,7 @@ const Pokemons = () => {
                 .then(res =>{
                     setTypeTitle(type ? type : 'all')
                     setPokemons(res.data.pokemon)
+                    setLastPage(Math.ceil(res.data.pokemon?.length / perPage));
                     setChange(true)
                     setPage(1)
                 })
@@ -48,6 +49,7 @@ const Pokemons = () => {
             getPokemons()
         }
     }
+
     // se encarga del renderizado de la lista de pokemon según el termino de busqueda.
     const loadPokemons = () =>{
         // setLastPage(Math.ceil(pokemons?.length / perPage));
@@ -85,6 +87,7 @@ const Pokemons = () => {
         if(document.title !== 'Pokedex | Home'){
             document.title = 'Pokedex | Home'
         }
+
         // Verificar si se muestran todos los pokemons o solo se mostraran los filtrados por el tipo de pokemon.
         if(type) {
             getPokemonsByType(type)
@@ -100,43 +103,42 @@ const Pokemons = () => {
             <div className="filters_container">
                 <div className="subheader">
                     <div className="search_container">
-                        <input
-                            id='search'
-                            type="search"
-                            value={toSearch}
-                            placeholder='Name or Id'
-                            onChange={e => setToSearch(e.target.value.toLowerCase())}
-                        />
+                        <input id='search' type="search" value={toSearch} placeholder='Name or Id' onChange={e => setToSearch(e.target.value.toLowerCase())} />
                         <button onClick={() => navigate(`/pokemons/${toSearch}`)}>Search</button>
                     </div>
                     <div className="filter_bar">
                         <label htmlFor="types">Filter by Types: </label>
-                        <select
-                            id="types"
-                            onChange={ e => setType(e.target.value)}
-                        >
+                        <select id="types" onChange={ e => setType(e.target.value)} >
                             <option key='default_option' value='all' defaultChecked>All</option>
-                            {
-                                capTypeName()
-                            }
+                            { capTypeName() }
                         </select>
                     </div>
                 </div>
             </div>
+
             <div className="pagination_container">
                 <div className="navigation">
-                <button onClick={() => setPage(page - 1)} disabled={page === 1} >
-                Prev
-                </button>
-                <span>{ page }</span>
-                <button onClick={() => setPage(page + 1)} disabled={ page === lastPage } >
-                Next
-                </button>
+                    <button onClick={() => setPage(1)} disabled={page === 1} > <i className="fa-solid fa-angles-left"></i> </button>
+                    <button onClick={() => setPage(page - 1)} disabled={page === 1} > <i className="fa-solid fa-chevron-left"></i> </button>
+                    <span>{page}</span>
+                    <button onClick={() => setPage(page + 1)} disabled={page === lastPage} > <i className="fa-solid fa-chevron-right"></i> </button>
+                    <button onClick={() => setPage(lastPage)} disabled={page === lastPage} > <i className="fa-solid fa-angles-right"></i> </button>
                 </div>
             </div>
+
             <h2>{typeTitle.toUpperCase()}</h2>
             <div className="cards_container">
                 { loadPokemons() }
+            </div>
+
+            <div className="pagination_container">
+                <div className="navigation">
+                    <button onClick={() => setPage(1)} disabled={page === 1} > <i className="fa-solid fa-angles-left"></i> </button>
+                    <button onClick={() => setPage(page - 1)} disabled={page === 1} > <i className="fa-solid fa-chevron-left"></i> </button>
+                    <span>{page}</span>
+                    <button onClick={() => setPage(page + 1)} disabled={page === lastPage} > <i className="fa-solid fa-chevron-right"></i> </button>
+                    <button onClick={() => setPage(lastPage)} disabled={page === lastPage} > <i className="fa-solid fa-angles-right"></i> </button>
+                </div>
             </div>
         </div>
     );

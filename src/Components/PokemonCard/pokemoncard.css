@@ -17,7 +17,7 @@
 .poke_name{
     display: grid;
     place-items: center;
-    max-width: 200px;
+    max-width: 300px;
     padding: 0 .5em;
     height: 35px;
     border-radius: .5em;
