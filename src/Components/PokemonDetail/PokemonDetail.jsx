@@ -1,13 +1,13 @@
+import EvolutionCard from '../Evolutions/EvolutionCard';
+import Description from '../Description/description'
+import vector from '../../assets/imgs/pokeball.svg'
+import altImg from '../../assets/imgs/whoIs.png'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Description from '../Description/description'
-import altImg from '../../assets/imgs/whoIs.png'
-import vector from '../../assets/imgs/pokeball.svg'
-import axios from 'axios';
-import bgTypes from '../data.json'
-import './pokemondetail.css'
 import Moves from '../moves/Moves';
-import EvolutionCard from '../Evolutions/EvolutionCard';
+import bgTypes from '../data.json';
+import './pokemondetail.css'
+import axios from 'axios';
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -114,7 +114,7 @@ const PokemonDetail = () => {
             {/* Representación del pokemon */}
                 <div className='hero_pokemon' style={{backgroundImage: background } }>
                     <div className="head_hero">
-                        <h1 className='title'>{pokeName}</h1>
+                        <h1 className='title'>{pokeName.replace('-',' ')}</h1>
                         <span className='number'>{`#${data?.id}`}</span>
                     </div>
                     <figure className='sprite'>
