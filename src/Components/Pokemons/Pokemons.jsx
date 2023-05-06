@@ -83,7 +83,9 @@ const Pokemons = () => {
     }
 
     useEffect( () =>{
+        // get all possible types of pokemons.
         getPokemonTypes()
+        // change the page title.
         if(document.title !== 'Pokedex | Home'){
             document.title = 'Pokedex | Home'
         }
@@ -91,8 +93,7 @@ const Pokemons = () => {
         // Verificar si se muestran todos los pokemons o solo se mostraran los filtrados por el tipo de pokemon.
         if(type) {
             getPokemonsByType(type)
-        }
-        else {
+        } else {
             getPokemons()
         }
     },[ type ])
