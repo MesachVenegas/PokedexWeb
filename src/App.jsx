@@ -5,6 +5,7 @@ import ProtectedRoutes from './Components/ProtectedRoutes'
 import Pokemons from './Components/Pokemons/Pokemons'
 import Loggin from './Components/Loggin/Loggin'
 import './App.css'
+import FootBar from './Components/FootBar/FootBar'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                     <Route path='/pokemons/:name' element={ <PokemonDetail/> } />
                 </Route>
             </Routes>
+            <FootBar />
         </HashRouter>
     )
 }
