@@ -1,0 +1,146 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 2em 0;
+    color: var(--text);
+    background-color: var(--first-color);
+}
+
+.foot_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.logo_foot {
+    display: grid;
+    place-content: center;
+    width: 100%;
+}
+
+.logo_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    cursor: pointer;
+}
+
+.logo_foot > p{
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.logo_container > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.foot_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 100%;
+    gap: 1em;
+    padding: 1em;
+}
+
+.social_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+.social_item {
+    display: grid;
+    place-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-movement);
+    border: 1px solid var(--bg-crystal);
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.social_link {
+    color: var(--text);
+    font-size: 1.7em;
+}
+
+.social_item:hover {
+    box-shadow: var(--shadow);
+}
+
+.site_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    flex-wrap: wrap;
+    width: 100%;
+    color: var(--text-light);
+}
+
+.info_heart{
+    color: rgb(59, 158, 250);
+    font-size: 1.2em;
+}
+
+
+
+.site_info > p > a {
+    text-decoration: none;
+    font-weight: bold;
+    color: yellow !important;
+}
+
+@media screen and (min-width: 589px) {
+    .logo_foot {
+        width: 50%;
+    }
+
+    .foot_menu {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .logo_foot {
+        width: 30%;
+    }
+
+    .foot_menu {
+        width: 30%;
+    }
+
+    .social_menu {
+        gap: .5em;
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    .footer {
+        max-width: 1366px;
+        margin: auto;
+        border-radius: .5em;
+        margin-top: 1em;
+    }
+}
