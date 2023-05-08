@@ -14,8 +14,7 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    height: 500px;
-    padding: 3em 0;
+    height: 650px;
     gap: 1em;
     border-radius: 1em;
     background-repeat: no-repeat;
@@ -54,6 +53,7 @@
     top: calc(100% - 120%);
     max-width: 550px;
     padding: 0 .5em;
+    margin-top: 2em;
     border-radius: 1em;
     background-color: var(--bg-crystal);
     z-index: 2;
