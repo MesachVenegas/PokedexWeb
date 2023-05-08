@@ -1,17 +1,14 @@
 import PokemonDetail from './Components/PokemonDetail/PokemonDetail'
-import NavigationBar from './Components/NavigationBar/NavigationBar'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import ProtectedRoutes from './Components/ProtectedRoutes'
 import Pokemons from './Components/Pokemons/Pokemons'
 import Loggin from './Components/Loggin/Loggin'
 import './App.css'
-import FootBar from './Components/FootBar/FootBar'
 
 function App() {
 
     return (
         <HashRouter>
-            <NavigationBar />
             <Routes>
                 <Route path='/' element={ <Loggin /> }/>
                 <Route element={ <ProtectedRoutes />}>
@@ -19,7 +16,6 @@ function App() {
                     <Route path='/pokemons/:name' element={ <PokemonDetail/> } />
                 </Route>
             </Routes>
-            <FootBar />
         </HashRouter>
     )
 }

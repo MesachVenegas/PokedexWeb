@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import altImg from  '../../assets/imgs/whoIs.png';
-import bgTypes from '../data.json'
+import imagesTypes from '../data.json'
 import axios from 'axios';
 import './pokemoncard.css'
 
@@ -12,6 +12,8 @@ const PokemonCard = ({ pokemon }) => {
     const [data, setData] = useState({});
     const [name, setName] =  useState('')
     const [types, setTypes] = useState('');
+    const [firstType, setFirstType] = useState();
+    const [secondType, setSecondType] = useState();
     const [hp, setHp] = useState('');
     const [attack, setAttack] = useState('')
     const [defense, setDefense] = useState('');
@@ -25,6 +27,7 @@ const PokemonCard = ({ pokemon }) => {
                     capitalizeName(res?.data.name)
                     loadTypes(res?.data.types)
                     loadStats(res?.data.stats)
+                    setTypes(res?.data.types)
                     if (res.data?.sprites.other.dream_world.front_default) {
                         setDefaultImage(res.data?.sprites.other.dream_world.front_default);
                     } else if (res.data?.sprites.front_default) {
@@ -42,7 +45,7 @@ const PokemonCard = ({ pokemon }) => {
     const getBgByType = () => {
         let bg;
         const  type = data.types?.[0].type.name
-        bgTypes.backgrounds.forEach(typeJson => {
+        imagesTypes.backgrounds.forEach(typeJson => {
             if (typeJson.name == type) {
                 bg = `url("${typeJson.url}")`;
 
@@ -52,7 +55,7 @@ const PokemonCard = ({ pokemon }) => {
     }
 
     const loadTypes = (typeList) => {
-        setTypes(typeList?.map(type => type.type.name).join(' - '))
+        setTypes(typeList?.map(type => type.type.name).join('  '))
     }
 
     const capitalizeName = (name) => {
@@ -69,6 +72,24 @@ const PokemonCard = ({ pokemon }) => {
         });
     }
 
+    useEffect(() => {
+        if (types) {
+            imagesTypes.icons.forEach(icon => {
+                if (types[0].type.name == icon.name) {
+                    setFirstType(icon)
+                }
+                if (types[1]) {
+                    if (types[1].type.name == icon.name) {
+                        setSecondType(icon)
+                    }
+                }
+                else {
+                    setSecondType(undefined)
+                }
+            })
+        }
+    }, [types])
+
     return (
         <div
             className='pokemon_card'
@@ -84,7 +105,22 @@ const PokemonCard = ({ pokemon }) => {
             </figure>
             <div className="data_container">
                 <ul className='pokemon_data'>
-                    <li className='type'>Types: {types}</li>
+                    <li className='type'>
+                        {
+                            firstType ? (
+                                <figure className='icon_card-container'>
+                                    <img src={firstType?.url} alt={firstType?.name} className='type_icon' />
+                                </figure>
+                            ) : ''
+                        }
+                        {
+                            secondType ? (
+                                <figure className='icon_card-container'>
+                                    <img src={secondType?.url} alt={secondType?.name} className='type_icon' />
+                                </figure>
+                            ) : ''
+                        }
+                    </li>
                     <li className='bar_box'>
                         <label htmlFor="hp">Hp</label>
                         <progress id="hp" max="255" value={hp}>{hp}</progress>

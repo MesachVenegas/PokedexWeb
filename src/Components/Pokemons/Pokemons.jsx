@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import './pokemons.css'
+import NavigationBar from '../NavigationBar/NavigationBar';
+import FootBar from '../FootBar/FootBar';
 
 const Pokemons = () => {
     const navigate = useNavigate();
@@ -101,6 +103,7 @@ const Pokemons = () => {
 
     return (
         <div className='pokemons_container'>
+            <NavigationBar />
             <div className="filters_container">
                 <div className="subheader">
                     <div className="search_container">
@@ -141,6 +144,8 @@ const Pokemons = () => {
                     <button onClick={() => setPage(lastPage)} disabled={page === lastPage} > <i className="fa-solid fa-angles-right"></i> </button>
                 </div>
             </div>
+
+            <FootBar />
         </div>
     );
 };

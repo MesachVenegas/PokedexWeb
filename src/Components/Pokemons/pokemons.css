@@ -51,9 +51,8 @@
     border: none;
     border-radius: 1em 0 0 1em;
     font-weight: bold;
-    border: 1px solid var(--text);
-    color: var(--text-light);
-    background-color: var(--bg-color);
+    color: var(--text);
+    background-color: var(--bg-white);
 }
 
 .search_container>input:focus {
@@ -69,7 +68,6 @@
     width: 35%;
     left: -2px;
     height: 40px;
-    border: 1px solid var(--text);
     cursor: pointer;
 }
 

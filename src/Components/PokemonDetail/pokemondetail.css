@@ -111,8 +111,31 @@
     padding: .5em;
 }
 
-.stat_box.types{
+.types{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+
+.type_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_container {
+    width: 60px;
+    height: 60px;
+}
+
+.type_icon{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 5px #030303);
 }
 
 .stat_box > label{
@@ -141,6 +164,70 @@
     border-radius: .5em;
 }
 
+/* Not Found Styles */
+.not_found-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.sorry_msg {
+    font-size: 2em;
+    letter-spacing: 1em;
+    color: rgb(252, 35, 64);
+}
+
+.error_img {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.error_image_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+.error_num {
+    font-weight: bold;
+    font-size: 8em;
+    filter: drop-shadow(0 36px 3px #000);
+}
+
+.error_image_container > img {
+    width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 36px 3px #000);
+}
+
+.not_found {
+    font-size: 1.5em;
+    letter-spacing: .4em;
+}
+
+.back_btn {
+    display: grid;
+    place-content: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 1em;
+    border: 1px solid;
+}
+
+.btn_link {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: var(--text);
+}
 
 @keyframes pulse {
     0%{
@@ -162,5 +249,37 @@
     .vector_bg{
         width: calc(100vw - 5%);
         height: calc(100vh - 25%);
+    }
+
+    .error_image_container {
+        width: 200px;
+    }
+
+    .error_num {
+        font-size: 10em;
+    }
+}
+
+@media screen and (min-width: 789px) {
+    .error_image_container {
+            width: 300px;
+        }
+        .error_num {
+            font-size: 18em;
+        }
+}
+
+@media screen and (min-width: 1300px) {
+    .not_found-view {
+        max-width: 1366px;
+        margin: auto;
+    }
+
+    .error_image_container {
+        width: 450px;
+    }
+
+    .error_num {
+        font-size: 24em;
     }
 }

@@ -102,7 +102,7 @@ const FootBar = () => {
                 </ul>
 
                 <div className="site_info">
-                    <p>Made with  <span className='info_heart'><i class="fa-solid fa-heart"></i></span> By <span className='info_author'>Mesach Venegas</span>  With data of <a href="https://pokeapi.co/?ref=public-apis">PokeAPI</a></p>
+                    <p>Made with  <span className='info_heart'><i className="fa-solid fa-heart"></i></span> By <span className='info_author'>Mesach Venegas</span>  With data of <a href="https://pokeapi.co/?ref=public-apis">PokeAPI</a></p>
                 </div>
             </div>
         </footer>

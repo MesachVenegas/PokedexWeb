@@ -77,75 +77,75 @@
     "icons": [
                 {
                     "name": "bug",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/8/88/Icon_Bug.png/revision/latest?cb=20171219195822"
+                    "url": "/images/bug.webp"
                 },
                 {
                     "name": "dark",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/e/e9/Icon_Dark.png/revision/latest?cb=20171219195823"
+                    "url": "/images/dark.webp"
                 },
                 {
                     "name": "dragon",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/d/d4/Icon_Dragon.png/revision/latest?cb=20171219195823"
+                    "url": "/images/dragon.webp"
                 },
                 {
                     "name": "electric",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/1/1c/Icon_Electric.png/revision/latest?cb=20171219195824"
+                    "url": "/images/electric.webp"
                 },
                 {
                     "name": "fairy",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/7/7f/Icon_Fairy.png/revision/latest?cb=20171219195824"
+                    "url": "/images/fairy.webp"
                 },
                 {
                     "name": "fighting",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/f/f0/Icon_Fighting.png/revision/latest?cb=20171219195825"
+                    "url": "/images/fighting.webp"
                 },
                 {
                     "name": "fire",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/0/0a/Icon_Fire.png/revision/latest?cb=20171219195825"
+                    "url": "/images/fire.webp"
                 },
                 {
                     "name": "flying",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/b/b0/Icon_Flying.png/revision/latest?cb=20171219195826"
+                    "url": "/images/flying.webp"
                 },
                 {
                     "name": "ghost",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/7/7d/Icon_Ghost.png/revision/latest?cb=20171219195826"
+                    "url": "/images/ghost.webp"
                 },
                 {
                     "name": "grass",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/0/0a/Icon_Grass.png/revision/latest?cb=20171219195826"
+                    "url": "/images/grass.webp"
                 },
                 {
                     "name": "ground",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/7/71/Icon_Ground.png/revision/latest?cb=20171219195827"
+                    "url": "/images/ground.webp"
                 },
                 {
                     "name": "ice",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/5/52/Icon_Ice.png/revision/latest?cb=20171219195828"
+                    "url": "/images/ice.webp"
                 },
                 {
                     "name": "normal",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/4/43/Icon_Normal.png/revision/latest?cb=20171219195828"
+                    "url": "/images/normal.webp"
                 },
                 {
                     "name": "poison",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/2/26/Icon_Poison.png/revision/latest?cb=20171219195828"
+                    "url": "/images/poison.webp"
                 },
                 {
                     "name": "psychic",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/c/ce/Icon_Psychic.png/revision/latest?cb=20171219195829"
+                    "url": "/images/psychic.webp"
                 },
                 {
                     "name": "rock",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/5/57/Icon_Rock.png/revision/latest?cb=20171219195830"
+                    "url": "/images/rock.webp"
                 },
                 {
                     "name": "steel",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/3/38/Icon_Steel.png/revision/latest?cb=20171219195830"
+                    "url": "/images/steel.webp"
                 },
                 {
                     "name": "water",
-                    "url": "https://static.wikia.nocookie.net/pokemongo/images/6/65/Icon_Water.png/revision/latest?cb=20171219195830"
+                    "url": "/images/water.webp"
                 }
     ]
 }

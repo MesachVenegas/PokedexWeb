@@ -1,13 +1,15 @@
 import EvolutionCard from '../Evolutions/EvolutionCard';
-import Description from '../Description/description'
-import vector from '../../assets/imgs/pokeball.svg'
-import altImg from '../../assets/imgs/whoIs.png'
-import { useParams } from 'react-router-dom';
+import NotFound from '../NotFound/NotFound';
+import Description from '../Description/description';
+import vector from '../../assets/imgs/pokeball.svg';
+import altImg from '../../assets/imgs/whoIs.png';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import imagesTypes from '../data.json';
 import Moves from '../moves/Moves';
-import bgTypes from '../data.json';
-import './pokemondetail.css'
+import './pokemondetail.css';
 import axios from 'axios';
+import FootBar from '../FootBar/FootBar';
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -16,6 +18,8 @@ const PokemonDetail = () => {
     const [data, setData] = useState({});
     const [pokeName, setPokeName] = useState('')
     const [types, setTypes] = useState();
+    const [firstType, setFirstType] = useState();
+    const [secondType, setSecondType] = useState();
     const [hp, setHp] = useState('');
     const [attack, setAttack] = useState('')
     const [specialAttack, setSpecialAttack] = useState('')
@@ -30,9 +34,9 @@ const PokemonDetail = () => {
             .then(res => {
                 setData(res?.data)
                 document.title = `Pokedex | ${res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)}`
-                capitalizeName(res?.data.name)
-                loadStats(res?.data.stats)
-                loadTypes(res?.data.types)
+                capitalizeName(res.data?.name)
+                loadStats(res.data?.stats)
+                setTypes(res.data?.types)
                 if (res.data?.sprites.other.dream_world.front_default) {
                     setDefaultImage(res.data?.sprites.other.dream_world.front_default);
                 } else if (res.data?.sprites.front_default) {
@@ -41,7 +45,7 @@ const PokemonDetail = () => {
                 setConsultStatus(res.status)
             })
             .catch(res =>{
-                setData(undefined)
+                setData(false)
                 setConsultStatus(res.response)
             })
     }
@@ -49,7 +53,7 @@ const PokemonDetail = () => {
 
     const getBgByType = () =>{
         const type = data.types?.[0].type;
-        bgTypes.backgrounds.forEach( typeJson =>{
+        imagesTypes.backgrounds.forEach( typeJson =>{
             if(typeJson.name == type?.name){
                 background = `url("${typeJson.url}")`;
                 return background;
@@ -62,9 +66,6 @@ const PokemonDetail = () => {
         setPokeName(name?.charAt(0)?.toUpperCase() + name?.slice(1));
     }
 
-    const loadTypes = (typeList) => {
-        setTypes(typeList?.map(type => type.type.name).join(' - '))
-    }
 
     const loadStats = (stats) => {
         stats.forEach(stat => {
@@ -100,17 +101,29 @@ const PokemonDetail = () => {
         }
     },[name])
 
+    useEffect( () =>{
+        if(types){
+            imagesTypes.icons.forEach(icon => {
+                if (types[0].type.name == icon.name){
+                    setFirstType(icon)
+                }
+                if(types[1]){
+                    if (types[1].type.name == icon.name){
+                        setSecondType(icon)
+                    }
+                }
+                else{
+                    setSecondType(undefined)
+                }
+            })
+        }
+    },[types])
+
     getBgByType()
 
-    if(!data){
-        return(
-            <>
-                <h1>No existe</h1>
-            </>
-        )
-    }else{
+    if(data){
         return (
-            <div className='screen_sizer detail_layout'>
+            <main className='screen_sizer detail_layout'>
             {/* Representación del pokemon */}
                 <div className='hero_pokemon' style={{backgroundImage: background } }>
                     <div className="head_hero">
@@ -128,8 +141,29 @@ const PokemonDetail = () => {
 
                 {/* estadísticas base del pokemon */}
                 <ul className='stats_container'>
-                    <li className="stat_box types">
-                        <h3>{types}</h3>
+                    <li className="stat_box">
+                        <div className="types">
+                            {
+                                firstType ? (
+                                    <div className='type_item'>
+                                        <figure className='icon_container'>
+                                            <img src={firstType?.url} alt={firstType?.name} className='type_icon'/>
+                                        </figure>
+                                        <span>{firstType.name.charAt(0).toUpperCase() + firstType.name.slice(1)}</span>
+                                    </div>
+                                ) : ''
+                            }
+                            {
+                                secondType ? (
+                                    <div className='type_item'>
+                                        <figure className='icon_container'>
+                                            <img src={secondType?.url} alt={secondType?.name} className='type_icon' />
+                                        </figure>
+                                        <span>{secondType.name.charAt(0).toUpperCase() + secondType.name.slice(1)}</span>
+                                    </div>
+                                ) : ''
+                            }
+                        </div>
                     </li>
                     <li className="stat_box">
                         <label htmlFor="hp">Base Exp</label>
@@ -173,7 +207,15 @@ const PokemonDetail = () => {
 
                 {/* Evolutions steps of pokemon */}
                 <EvolutionCard id={ data?.id } />
-            </div>
+
+                {/* foot bar */}
+                <FootBar />
+            </main>
+        );
+    }
+    else{
+        return (
+            <NotFound />
         );
     }
 };
