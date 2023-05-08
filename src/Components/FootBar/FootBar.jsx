@@ -29,7 +29,7 @@ const FootBar = () => {
                 {/* Nav menu */}
                 <ul className="foot_menu">
                     <li className='foot_menu-item'>
-                        <Link to={'/pokemons'} className='menu_link'>
+                        <Link to={'/pokemons'} className='menu_link' onClick={ () => goUp()}>
                             <span className='menu_select'>
                                 <i className="fa-solid fa-caret-right"></i>
                             </span>
